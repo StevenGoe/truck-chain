@@ -1,0 +1,21 @@
+.navBar {
+    display: flex;
+    background: rgb(12,98,16);
+    background: linear-gradient(90deg, rgba(12,98,16,1) 0%, rgba(7,47,15,1) 80%);
+}
+
+.App {
+    grid-column: 2;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5% 90% auto;
+}
+
+.navLeft {
+    flex: 1;
+    justify-content: start;
+}
+.navRight {
+    flex: 2;
+    justify-content: end;
+}
