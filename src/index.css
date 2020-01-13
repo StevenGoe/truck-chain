@@ -19,5 +19,5 @@ html, #root {
 
 #root {
   display: grid;
-  grid-template-columns: auto 1012px auto;
+  grid-template-columns: auto 1278px auto;
 }

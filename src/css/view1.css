@@ -1,7 +1,32 @@
 .navBar {
     display: flex;
-    background: rgb(12,98,16);
-    background: linear-gradient(90deg, rgba(12,98,16,1) 0%, rgba(7,47,15,1) 80%);
+    background: linear-gradient(90deg, rgb(10, 83, 14) 0%, rgba(7,47,15,1) 80%);
+    overflow: hidden;
+}
+
+
+.navBar a {
+    color: #f2f2f2;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBar .navLeft a {
+    float: left;
+    text-align: left;
+}
+
+.navBar .navLeft {
+    flex: 1;
+}
+
+.navBar .navRight {
+    flex: 1;
+}
+
+.navBar .navRight a {
+    float: right;
+    text-align: right;
 }
 
 .App {
@@ -11,11 +36,12 @@
     grid-template-rows: 5% 90% auto;
 }
 
-.navLeft {
-    flex: 1;
-    justify-content: start;
-}
-.navRight {
-    flex: 2;
-    justify-content: end;
-}
+.navBar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+.navBar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
