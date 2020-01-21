@@ -1,12 +1,13 @@
 import React from "react";
+import { parentPort } from "worker_threads";
 
-interface Address {
+export interface Address {
   address: string;
   areaCode: string;
   zipCode: number;
 }
 
-interface Order {
+export interface Order {
   id: string;
   status: string;
   eta: string;
@@ -19,42 +20,6 @@ interface Order {
 interface RowListProps {
   orders: Array<Order>;
 }
-
-let testAddress: Address = {
-  address: "Blomstervænget 14",
-  areaCode: "Rødovre",
-  zipCode: 2610
-};
-
-let test: Order[] = [
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  },
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  },
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  }
-];
 
 const RowList: React.FC<RowListProps> = (props) => {
 return <>{props.orders.map(order => 
@@ -88,7 +53,7 @@ return <>{props.orders.map(order =>
 )}</>;
 };
 
-export const Table = () => {
+export const Table: React.FC<RowListProps> = (props) => {
   return (
     <div>
       <table>
@@ -104,7 +69,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <RowList orders={test} />
+          <RowList orders={props.orders} />
         </tbody>
       </table>
     </div>
