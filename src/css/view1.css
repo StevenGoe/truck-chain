@@ -1,6 +1,6 @@
 .navBar {
     display: flex;
-    background: linear-gradient(90deg, rgb(10, 83, 14) 0%, rgba(7,47,15,1) 80%);
+    background: linear-gradient(90deg, rgb(39, 68, 41) 25%, rgb(11, 20, 13) 75%);
     overflow: hidden;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Table } from './Table';
 import './css/view1.css';
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <a href="#alert">Alert</a>
         </div>
       </div>
+      <Table/>
     </div>
   );
 }
