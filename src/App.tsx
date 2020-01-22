@@ -1,51 +1,9 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import { Table, Order, Address } from "./Table";
-import "./css/view1.css";
+import React, { Component } from "react";
 
-let testAddress: Address = {
-  address: "Blomstervænget 14",
-  areaCode: "Rødovre",
-  zipCode: 2610
-};
 
-let test: Order[] = [
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  },
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  },
-  {
-    id: "5",
-    status: "driving",
-    eta: "tomorrow",
-    pickAddress: testAddress,
-    delAddress: testAddress,
-    load: 10,
-    special: "false"
-  }
-];
+class APP 
 
-interface Appstate {
-  orders: Order[];
-}
 
-function initialState(): Appstate {
-  return { orders: [] };
-}
 
 const App: React.FC = () => {
   const [curState, setState] = useState(initialState());
