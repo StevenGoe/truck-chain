@@ -42,8 +42,3 @@
 .navBar .far:hover {
     color: rgba(255, 255, 255, 0.5);
 }
-
-.navBar a.active {
-  background-color: #4caf50;
-  color: white;
-}

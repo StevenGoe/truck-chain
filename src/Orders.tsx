@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import { Table, Order, Address } from "./Table";
 // import "./css/view1.css";
 
