@@ -1,37 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import FrontScreen from './FrontScreen';
+import NavBar from './NavBar';
+import Haulier from './Haulier';
+import SecondScreen from './SecondScreen';
+import './css/App.css';
+// Testing
 
-
-class APP 
-
-
-
-const App: React.FC = () => {
-  const [curState, setState] = useState(initialState());
-  return (
-    <div className="App">
-      <div className="navBar">
-        <div id="navLeft" className="navLeft">
-          <a id="logo" className="logo" href="#Logo">
-            Logo
-          </a>
-          <a id="Ture" className="Ture" href="#Ture">
-            Udbudte ture
-          </a>
-          <a id="Vognmand" className="Vognmand" href="#Vognmand">
-            Vognmand
-          </a>
-        </div>
-        <div id="navRight" className="navRight">
-          <a href="#profile">Profile</a>
-          <a href="#alert">Alert</a>
-        </div>
-      </div>
-      <div>
-        <button onClick={() => setState(prevState => ({... prevState, orders: test}))} >Add order</button>
-        <Table orders={curState.orders} />
-      </div>
-    </div>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <section className='App'>
+        <BrowserRouter>
+          <div>
+            <NavBar />
+            <Switch>
+              <Route path='/' component={FrontScreen} exact />
+              <Route path='/udbyder' component={SecondScreen} />
+              <Route path='/vognmand' component={Haulier} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </section>
+    );
+  }
+}
 
 export default App;
