@@ -17,7 +17,7 @@ class FrontScreen extends Component {
           </ul>
         </div>
         <div className='FrontScreen-Konto'>
-          <h2>Opret ny konto eller login</h2>
+          <h2>Opret konto eller login</h2>
           <NavLink to='/udbyder'>
             <button className='FrontScreen-Button'>Udbyder</button>
           </NavLink>

@@ -4,7 +4,6 @@
   background: linear-gradient(90deg, rgb(39, 68, 41) 25%, rgb(11, 20, 13) 75%);
   height: 10vh;
   border-bottom: 2px solid #fff;
-
 }
 
 .navBar a {
@@ -14,15 +13,14 @@
 }
 
 .navBar .navLeft .logo {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .navBar .navLeft {
-    display: flex;
-    align-items: center;
-    margin: 0 1rem;
-  }
-
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
 
 .navBar .navRight {
   display: flex;
@@ -39,6 +37,7 @@
   text-align: right;
 }
 
-.navBar .far:hover {
-    color: rgba(255, 255, 255, 0.5);
+.navBar .far:hover,
+.navBar .logo .logo-navlink:hover {
+  color: rgba(255, 255, 255, 0.5);
 }

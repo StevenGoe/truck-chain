@@ -8,7 +8,9 @@ class NavBar extends Component {
       <div className='navBar'>
         <div className='navLeft'>
           <a className='logo' href='#Logo'>
-            <NavLink to='/'>Logo</NavLink>
+            <NavLink className='logo-navlink' to='/'>
+              Logo
+            </NavLink>
           </a>
         </div>
         <div className='navRight'>

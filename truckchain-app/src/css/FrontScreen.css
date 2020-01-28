@@ -36,7 +36,7 @@
 }
 
 .FrontScreen-Button {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   margin: 1rem 0.5rem;
   min-width: 100px;
   cursor: pointer;
@@ -45,4 +45,9 @@
   -moz-border-radius: 20rem;
   -ms-border-radius: 20rem;
   -o-border-radius: 20rem;
+  border: none;
+}
+
+.FrontScreen-Button:hover {
+  background: rgba(255, 255, 255, 0.8);
 }
