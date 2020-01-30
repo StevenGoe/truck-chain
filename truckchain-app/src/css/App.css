@@ -2,10 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
   width: 85vw;
   margin: auto;
   overflow: hidden; /*Only for FrontScreen */
+  min-width: 1060px;
 }

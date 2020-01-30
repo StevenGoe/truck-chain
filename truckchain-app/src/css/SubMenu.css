@@ -1,0 +1,40 @@
+.SubMenu {
+  margin-left: 5rem;
+}
+
+.SubMenu form {
+  display: inline-block;
+}
+
+.SubMenu form input {
+  padding: 0.2rem 1rem 0.2rem 0.2rem;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.SubMenu > button {
+  border: none;
+  padding: 0.7rem 1rem;
+  background: inherit;
+  color: rgb(127, 127, 127);
+  border-right: 1px solid rgb(211, 211, 211);
+}
+
+.SubMenu > button:focus{
+outline: none;
+}
+
+.SubMenu > button:active{
+  text-decoration: underline;
+  }
+
+.SubMenu > form {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.SubMenu > button:last-child {
+  border-right: none;
+}

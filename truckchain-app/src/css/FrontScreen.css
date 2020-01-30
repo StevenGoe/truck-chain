@@ -48,6 +48,30 @@
   border: none;
 }
 
-.FrontScreen-Button:hover {
+.FrontScreen-Button-Split-left {
+  padding: 0.8rem 0;
+  margin: 1rem 0;
+  min-width: 50px;
+  cursor: pointer;
+  border-top-left-radius: 10rem;
+  border-bottom-left-radius: 10rem;
+  border: none;
+  text-align: right;
+}
+
+.FrontScreen-Button-Split-right {
+  padding: 0.8rem 0;
+  margin: 1rem 0;
+  min-width: 50px;
+  cursor: pointer;
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+  border: none;
+  text-align: left;
+}
+
+.FrontScreen-Button:hover,
+.FrontScreen-Button-Split-left:hover, 
+.FrontScreen-Button-Split-right:hover {
   background: rgba(255, 255, 255, 0.8);
 }

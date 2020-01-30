@@ -1,0 +1,37 @@
+
+.OrderHandler-Top-Menu {
+  background: rgba(242, 242, 242, 0.5);
+  height: 35vh;
+  border-bottom: 1.4px solid rgb(211, 211, 211);
+}
+.OrderHandler-Top-Menu-flex {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  width: 35%;
+  padding: 4rem 2rem 3rem;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+.OrderHandler-Top-Menu-btn {
+  color: rgba(30, 86, 49, 0.9);
+  cursor: pointer;
+}
+
+.OrderHandler-Top-Menu-btn:hover {
+  color: rgb(38,66,39);
+}
+
+.OrderHandler-table-header {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+  font-weight: bold;
+}
+
+.OrderHandler-table-header tr {
+  display: flex;
+  justify-content: space-evenly
+}

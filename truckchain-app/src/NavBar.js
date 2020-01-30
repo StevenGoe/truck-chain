@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import './css/NavBar.css';
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className='navBar'>
@@ -14,6 +17,7 @@ class NavBar extends Component {
           </a>
         </div>
         <div className='navRight'>
+          {this.props.loginID}
           <a href='#alert'>
             <i className='far fa-bell fa-lg'></i>
           </a>

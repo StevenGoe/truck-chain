@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import FrontScreen from './FrontScreen';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 import Haulier from './Haulier';
-import SecondScreen from './SecondScreen';
+import OrderHandler from './OrderHandler';
 import './css/App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      orderCreator: 'RGS'
+    };
+  }
   render() {
     return (
       <section className='App'>
         <BrowserRouter>
           <div>
-            <NavBar />
+            {/* <NavBar /> */}
             <Switch>
               <Route path='/' component={FrontScreen} exact />
-              <Route path='/udbyder' component={SecondScreen} />
-              <Route path='/vognmand' component={Haulier} />
+              <Route
+                path='/udbyder'
+                render={props => (
+                  <OrderHandler {...props} id={this.state.orderCreator} />
+                )}
+              />
+              <Route path='/vognmandA' component={Haulier} />
+              <Route path='/vognmandB' component={Haulier} />
             </Switch>
           </div>
         </BrowserRouter>
