@@ -4,6 +4,7 @@ import FrontScreen from './FrontScreen';
 // import NavBar from './NavBar';
 import Haulier from './Haulier';
 import OrderHandler from './OrderHandler';
+import NewOrder from './NewOrder';
 import './css/App.css';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
               />
               <Route path='/vognmandA' component={Haulier} />
               <Route path='/vognmandB' component={Haulier} />
+              <Route path='/ny-ordre' component={NewOrder} />
             </Switch>
           </div>
         </BrowserRouter>

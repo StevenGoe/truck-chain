@@ -5,17 +5,41 @@ import './css/NavBar.css';
 class NavBar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activeBtn: false
+    };
   }
   render() {
+    const subMenu = this.props.subMenu && (
+      <div className='navSub'>
+        <button className='activeBtn'>Udbudte ture</button>
+        <button
+          className={this.state.activeBtn && 'activeBtn-hover'}
+          onMouseOver={() =>
+            this.setState({
+              activeBtn: !this.state.activeBtn
+            })
+          }
+          onMouseOut={() =>
+            this.setState({
+              activeBtn: !this.state.activeBtn
+            })
+          }
+        >
+          Vognmand
+        </button>
+      </div>
+    );
     return (
-      <div className='navBar'>
+      <div className={this.props.subMenu ? 'navBar' : 'navBar-frontpage'}>
         <div className='navLeft'>
-          <a className='logo' href='#Logo'>
+          <div className='logo'>
             <NavLink className='logo-navlink' to='/'>
               Logo
             </NavLink>
-          </a>
+          </div>
         </div>
+        {subMenu}
         <div className='navRight'>
           {this.props.loginID}
           <a href='#alert'>
