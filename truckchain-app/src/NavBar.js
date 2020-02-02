@@ -12,7 +12,9 @@ class NavBar extends Component {
   render() {
     const subMenu = this.props.subMenu && (
       <div className='navSub'>
-        <button className='activeBtn'>Udbudte ture</button>
+        <NavLink className='logo-navlink' to='/udbyder'>
+          <button className='activeBtn'>Udbudte ture</button>
+        </NavLink>
         <button
           className={this.state.activeBtn && 'activeBtn-hover'}
           onMouseOver={() =>

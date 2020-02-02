@@ -1,0 +1,114 @@
+.NewOrder-Topbar {
+  border-bottom: 1.4px solid rgb(211, 211, 211);
+}
+
+.NewOrder-Submenu {
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+  align-items: center;
+  margin: 0 4rem;
+  color: rgba(30, 86, 49, 0.9);
+}
+
+/* .NewOrder-Submenu > div {
+  position: relative;
+} */
+
+.NewOrder-Submenu-btn-cancel {
+  position: relative;
+  border: none;
+  background: inherit;
+  color: inherit;
+  font-weight: bold;
+  margin-right: 2rem;
+  outline: none;
+}
+
+.NewOrder-Submenu-btn-cancel:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.NewOrder-Submenu-btn-cancel:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  bottom: -5px;
+  height: 2%;
+  width: 90%;
+  border-bottom: 1.5px solid rgba(30, 86, 49, 0.9);
+}
+
+.NewOrder-Submenu-btn-cancel:hover:after {
+  opacity: 0.8;
+  border-bottom: 1.5px solid rgba(30, 86, 49, 0.5);
+}
+
+.NewOrder-Submenu-btn-create {
+  background: rgba(30, 86, 49, 0.9);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20rem;
+  -webkit-border-radius: 20rem;
+  -moz-border-radius: 20rem;
+  -ms-border-radius: 20rem;
+  -o-border-radius: 20rem;
+  border: none;
+  box-shadow: 0 1px rgb(22, 63, 36);
+  /* position: absolute; */
+  outline: none;
+}
+
+.NewOrder-Submenu-btn-create:hover {
+  background: rgba(30, 86, 49, 0.8);
+  cursor: pointer;
+}
+
+.NewOrder-Submenu-btn-create:active,
+.NewOrder-Submenu-btn-cancel:active {
+  transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+}
+
+.OrderHandler-table-header-newOrder {
+  margin-top: 1rem;
+  width: 90%;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+  font-weight: bold;
+  /* bord */
+}
+
+.OrderHandler-table-header-newOrder tr {
+  display: flex;
+  justify-content: space-around;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.NewOrder-Form-Thead-Pickup {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: rgba(30, 86, 49, 0.9);
+}
+
+.NewOrder-Form-Thead-Pickup tr td {
+  padding: 0.5rem 2rem 1rem 5rem;
+}
+
+.NewOrder-Form-Thead-Pickup tr td label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.NewOrder-Form-Thead-Pickup tr td * {
+  padding: 0.25rem 2rem 0 0.5rem;
+}

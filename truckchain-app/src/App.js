@@ -30,7 +30,12 @@ class App extends Component {
               />
               <Route path='/vognmandA' component={Haulier} />
               <Route path='/vognmandB' component={Haulier} />
-              <Route path='/ny-ordre' component={NewOrder} />
+              <Route
+                path='/ny-ordre'
+                render={props => (
+                  <NewOrder {...props} id={this.state.orderCreator} />
+                )}
+              />
             </Switch>
           </div>
         </BrowserRouter>
