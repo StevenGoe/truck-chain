@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import FrontScreen from './FrontScreen';
-// import NavBar from './NavBar';
-import Haulier from './Haulier';
 import OrderHandler from './OrderHandler';
+import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
 import './css/App.css';
 
@@ -11,7 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orderCreator: 'RGS'
+      orderCreator: { Id: 'RGS', BrugerType: 0 },
+      vognmandOne: { Id: 'Vognmand Jensen', BrugerType: 1 },
+      vognmandTwo: { Id: 'Brødrene Rasmussen', BrugerType: 1 }
     };
   }
   render() {
@@ -19,17 +20,38 @@ class App extends Component {
       <section className='App'>
         <BrowserRouter>
           <div>
-            {/* <NavBar /> */}
             <Switch>
               <Route path='/' component={FrontScreen} exact />
               <Route
                 path='/udbyder'
                 render={props => (
-                  <OrderHandler {...props} id={this.state.orderCreator} />
+                  <OrderHandler
+                    {...props}
+                    id={this.state.orderCreator.Id}
+                    type={this.state.orderCreator.BrugerType}
+                  />
                 )}
               />
-              <Route path='/vognmandA' component={Haulier} />
-              <Route path='/vognmandB' component={Haulier} />
+              <Route
+                path='/vognmandOne'
+                render={props => (
+                  <OrderTaker
+                    {...props}
+                    id={this.state.vognmandOne.Id}
+                    type={this.state.vognmandOne.BrugerType}
+                  />
+                )}
+              />
+              <Route
+                path='/vognmandTwo'
+                render={props => (
+                  <OrderTaker
+                    {...props}
+                    id={this.state.vognmandTwo.Id}
+                    type={this.state.vognmandTwo.BrugerType}
+                  />
+                )}
+              />
               <Route
                 path='/ny-ordre'
                 render={props => (

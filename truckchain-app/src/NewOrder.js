@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
+import { NavLink } from 'react-router-dom';
 import './css/NewOrder.css';
 
 class NewOrder extends Component {
@@ -14,12 +15,12 @@ class NewOrder extends Component {
           <section className='NewOrder-Submenu'>
             <h1>Oprettelse af ny tur</h1>
             <div>
-              <button className='NewOrder-Submenu-btn-cancel'>
+              <NavLink className='NewOrder-Submenu-btn-cancel' to='/udbyder'>
                 Fortryd Oprettelse
-              </button>
-              <button className='NewOrder-Submenu-btn-create'>
+              </NavLink>
+              <NavLink className='NewOrder-Submenu-btn-create' to='/udbyder'>
                 Opret Udbud
-              </button>
+                </NavLink>
             </div>
           </section>
           <table className='OrderHandler-table-header-newOrder'>
@@ -48,7 +49,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Afhentningsdato</label>
+                <label htmlFor='hentAdresse'>Afhentningsdato</label>
                 <input
                   type='hentDato'
                   name='hentDato'
@@ -58,12 +59,8 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Afhentningstidspunkt</label>
-                <input
-                  type='hentTid'
-                  name='hentTid'
-                  placeholder='00:00'
-                />
+                <label htmlFor='hentAdresse'>Afhentningstidspunkt</label>
+                <input type='hentTid' name='hentTid' placeholder='00:00' />
               </td>
             </tr>
           </thead>
@@ -81,7 +78,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Leveringsdato</label>
+                <label htmlFor='hentAdresse'>Leveringsdato</label>
                 <input
                   type='hentDato'
                   name='hentDato'
@@ -91,12 +88,8 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Leveringstidspunkt</label>
-                <input
-                  type='hentTid'
-                  name='hentTid'
-                  placeholder='00:00'
-                />
+                <label htmlFor='hentAdresse'>Leveringstidspunkt</label>
+                <input type='hentTid' name='hentTid' placeholder='00:00' />
               </td>
             </tr>
           </thead>
@@ -114,7 +107,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Lastvægt</label>
+                <label htmlFor='hentAdresse'>Lastvægt</label>
                 <input
                   type='hentDato'
                   name='hentDato'
@@ -124,7 +117,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Vogntype</label>
+                <label htmlFor='hentAdresse'>Vogntype</label>
                 <input
                   type='hentTid'
                   name='hentTid'
@@ -134,7 +127,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Rammeaftale</label>
+                <label htmlFor='hentAdresse'>Rammeaftale</label>
                 <input
                   type='hentTid'
                   name='hentTid'
@@ -144,7 +137,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Kommentar</label>
+                <label htmlFor='hentAdresse'>Kommentar</label>
                 <input
                   type='hentTid'
                   name='hentTid'
@@ -156,12 +149,15 @@ class NewOrder extends Component {
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <p>Sæt tidsfrist for hvornår fragtaftalen senest skal være på plads.</p>
+                <p>
+                  Sæt tidsfrist for hvornår fragtaftalen senest skal være på
+                  plads.
+                </p>
               </td>
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Alarmdato</label>
+                <label htmlFor='hentAdresse'>Alarmdato</label>
                 <input
                   type='hentDato'
                   name='hentDato'
@@ -171,12 +167,8 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-              <label htmlFor='hentAdresse'>Alarmtidspunkt</label>
-                <input
-                  type='hentTid'
-                  name='hentTid'
-                  placeholder='00:00'
-                />
+                <label htmlFor='hentAdresse'>Alarmtidspunkt</label>
+                <input type='hentTid' name='hentTid' placeholder='00:00' />
               </td>
             </tr>
           </thead>

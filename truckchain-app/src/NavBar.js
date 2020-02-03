@@ -9,27 +9,58 @@ class NavBar extends Component {
       activeBtn: false
     };
   }
+
   render() {
     const subMenu = this.props.subMenu && (
       <div className='navSub'>
         <NavLink className='logo-navlink' to='/udbyder'>
-          <button className='activeBtn'>Udbudte ture</button>
+          <button
+            className={
+              (this.props.brugerType === 0 ? 'activeBtn' : '') +
+              (this.props.brugerType !== 0 && this.state.activeBtn
+                ? 'activeBtn-hover'
+                : '')
+            }
+            onMouseOver={() =>
+              this.props.brugerType !== 0 &&
+              this.setState({
+                activeBtn: !this.state.activeBtn
+              })
+            }
+            onMouseOut={() =>
+              this.props.brugerType !== 0 &&
+              this.setState({
+                activeBtn: !this.state.activeBtn
+              })
+            }
+          >
+            Udbudte ture{' '}
+          </button>
         </NavLink>
-        <button
-          className={this.state.activeBtn && 'activeBtn-hover'}
-          onMouseOver={() =>
-            this.setState({
-              activeBtn: !this.state.activeBtn
-            })
-          }
-          onMouseOut={() =>
-            this.setState({
-              activeBtn: !this.state.activeBtn
-            })
-          }
-        >
-          Vognmand
-        </button>
+        <NavLink className='logo-navlink' to='/vognmandOne'>
+          <button
+            className={
+              (this.props.brugerType === 1 ? 'activeBtn' : '') +
+              (this.props.brugerType !== 1 && this.state.activeBtn
+                ? 'activeBtn-hover'
+                : '')
+            }
+            onMouseOver={() =>
+              this.props.brugerType !== 1 &&
+              this.setState({
+                activeBtn: !this.state.activeBtn
+              })
+            }
+            onMouseOut={() =>
+              this.props.brugerType !== 1 &&
+              this.setState({
+                activeBtn: !this.state.activeBtn
+              })
+            }
+          >
+            Vognmand
+          </button>
+        </NavLink>
       </div>
     );
     return (

@@ -1,0 +1,17 @@
+.SubMenuFilter {
+display: flex;
+flex-direction: column;
+margin-left: 7rem;
+}
+.SubMenuFilter form {
+  margin-right: 2rem;
+  justify-content: space-between;
+}
+
+.SubMenuFilter-Form-Thead input {
+  width: 150px;
+}
+
+.SubMenuFilter-Form-Thead label {
+  display: block;
+}

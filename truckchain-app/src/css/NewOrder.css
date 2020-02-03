@@ -11,10 +11,6 @@
   color: rgba(30, 86, 49, 0.9);
 }
 
-/* .NewOrder-Submenu > div {
-  position: relative;
-} */
-
 .NewOrder-Submenu-btn-cancel {
   position: relative;
   border: none;
@@ -81,7 +77,6 @@
   font-size: 0.75rem;
   color: rgb(127, 127, 127);
   font-weight: bold;
-  /* bord */
 }
 
 .OrderHandler-table-header-newOrder tr {

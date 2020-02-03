@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-import SubMenu from './SubMenu';
+import SubMenuFilter from './SubMenuFilter';
 import { NavLink } from 'react-router-dom';
-import './css/OrderHandler.css';
+import './css/FrontScreen.css';
 
-class OrderHandler extends Component {
+class OrderTaker extends Component {
   static defaultProps = {
     navbarSubMenu: true
   };
@@ -15,15 +15,18 @@ class OrderHandler extends Component {
       active: false
     };
   }
-
   render() {
     return (
-      <div className='OrderHandler'>
-        <NavBar loginID={this.props.id} brugerType={this.props.type} subMenu={this.props.navbarSubMenu} />
+      <div className='OrderTaker'>
+        <NavBar
+          loginID={this.props.id}
+          brugerType={this.props.type}
+          subMenu={this.props.navbarSubMenu}
+        />
         <div className='OrderHandler-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
             <div className='OrderHandler-Top-Menu-btn active'>
-              Mine udbudte ture
+              Alle leverancer
             </div>
             <NavLink
               className={
@@ -43,19 +46,19 @@ class OrderHandler extends Component {
               }
               to='/ny-ordre'
             >
-              Udbyd ny tur
+              Mine leverancer
             </NavLink>
           </div>
-          <SubMenu />
+          <SubMenuFilter />
           <table className='OrderHandler-table-header'>
             <thead>
               <tr>
-                <td>Identifikation</td>
-                <td>Lastspecifikationer</td>
                 <td>Afhentningsadresse</td>
                 <td>Afhentningstidspunkt</td>
+                <td>Forventet pris</td>
                 <td>Leveringssadresse</td>
                 <td>Leveringstidspunkt</td>
+                <td>Lastspecifikationer</td>
                 <td>Mulige handlinger</td>
               </tr>
             </thead>
@@ -66,4 +69,4 @@ class OrderHandler extends Component {
   }
 }
 
-export default OrderHandler;
+export default OrderTaker;
