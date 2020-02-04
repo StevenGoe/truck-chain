@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SubMenu from './SubMenu';
 import { NavLink } from 'react-router-dom';
-import './css/OrderHandler.css';
 
-class OrderHandler extends Component {
+class MyTakenOrders extends Component {
   static defaultProps = {
     navbarSubMenu: true
   };
@@ -18,17 +17,14 @@ class OrderHandler extends Component {
 
   render() {
     return (
-      <div className='OrderHandler'>
+      <div>
         <NavBar
           loginID={this.props.id}
           brugerType={this.props.type}
           subMenu={this.props.navbarSubMenu}
         />
-        <div className='OrderHandler-Top-Menu'>
+        <div className='MyTakenOrder-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
-            <div className='OrderHandler-Top-Menu-btn active'>
-              Mine udbudte ture
-            </div>
             <NavLink
               className={
                 this.state.active
@@ -45,21 +41,27 @@ class OrderHandler extends Component {
                   active: false
                 })
               }
-              to='/ny-ordre'
+              to='/VognmandOne'
             >
-              Udbyd ny tur
+              Alle leverancer
+            </NavLink>
+            <NavLink
+              className='OrderHandler-Top-Menu-btn active'
+              to='/mine-leverancer'
+            >
+              Mine leverancer
             </NavLink>
           </div>
           <SubMenu />
           <table className='OrderHandler-table-header'>
             <thead>
               <tr>
-                <td>Identifikation</td>
-                <td>Lastspecifikationer</td>
                 <td>Afhentningsadresse</td>
                 <td>Afhentningstidspunkt</td>
+                <td>Forventet pris</td>
                 <td>Leveringssadresse</td>
                 <td>Leveringstidspunkt</td>
+                <td>Lastspecifikationer</td>
                 <td>Mulige handlinger</td>
               </tr>
             </thead>
@@ -70,4 +72,4 @@ class OrderHandler extends Component {
   }
 }
 
-export default OrderHandler;
+export default MyTakenOrders;

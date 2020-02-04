@@ -2,9 +2,10 @@ a {
   text-decoration: none;
 }
 
-.OrderHandler-Top-Menu {
+.OrderHandler-Top-Menu,
+.MyTakenOrder-Top-Menu {
   background: rgba(242, 242, 242, 0.5);
-  height: 35vh;
+  height: 36vh;
   border-bottom: 1.4px solid rgb(211, 211, 211);
 }
 .OrderTaker-Top-Menu {
@@ -12,8 +13,6 @@ a {
   height: 39vh;
   border-bottom: 1.4px solid rgb(211, 211, 211);
 }
-
-
 
 .OrderHandler-Top-Menu-flex {
   display: flex;

@@ -4,6 +4,7 @@ import FrontScreen from './FrontScreen';
 import OrderHandler from './OrderHandler';
 import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
+import MyTakenOrders from './MyTakenOrders';
 import './css/App.css';
 
 class App extends Component {
@@ -56,6 +57,16 @@ class App extends Component {
                 path='/ny-ordre'
                 render={props => (
                   <NewOrder {...props} id={this.state.orderCreator.Id} />
+                )}
+              />
+              <Route
+                path='/mine-leverancer'
+                render={props => (
+                  <MyTakenOrders
+                    {...props}
+                    id={this.state.vognmandOne.Id}
+                    type={this.state.vognmandOne.BrugerType}
+                  />
                 )}
               />
             </Switch>

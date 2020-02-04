@@ -47,7 +47,7 @@ class OrderTaker extends Component {
                   active: false
                 })
               }
-              to='/VognmandOne/mine-leverancer'
+              to='/mine-leverancer'
             >
               Mine leverancer
             </NavLink>

@@ -71,7 +71,7 @@
 }
 
 .FrontScreen-Button:hover,
-.FrontScreen-Button-Split-left:hover, 
+.FrontScreen-Button-Split-left:hover,
 .FrontScreen-Button-Split-right:hover {
   background: rgba(255, 255, 255, 0.8);
 }
