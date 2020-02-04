@@ -44,7 +44,7 @@ class NewOrder extends Component {
                   id='hentAdresse'
                   name='hentAdresse'
                   placeholder='Vælg adresse'
-                  isRequired
+                  required
                 />
               </td>
             </tr>
@@ -68,80 +68,83 @@ class NewOrder extends Component {
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Leveringsadresse *</label>
+                <label htmlFor='levAdresse'>Leveringsadresse *</label>
                 <input
                   type='text'
-                  id='hentAdresse'
-                  name='hentAdresse'
+                  id='levAdresse'
+                  name='levAdresse'
                   placeholder='Vælg adresse'
+                  required
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Leveringsdato</label>
+                <label htmlFor='levDato'>Leveringsdato</label>
                 <input
-                  type='hentDato'
-                  name='hentDato'
+                  type='levDato'
+                  name='levDato'
                   placeholder='Vælg dato'
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Leveringstidspunkt</label>
-                <input type='hentTid' name='hentTid' placeholder='00:00' />
+                <label htmlFor='levTid'>Leveringstidspunkt</label>
+                <input type='levTid' name='levTid' placeholder='00:00' />
               </td>
             </tr>
           </thead>
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Lasttype *</label>
+                <label htmlFor='lastType'>Lasttype *</label>
                 <input
                   type='text'
-                  id='hentAdresse'
-                  name='hentAdresse'
+                  id='lastType'
+                  name='lastType'
                   placeholder='Indtast lasttype'
+                  required
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Lastvægt *</label>
+                <label htmlFor='lastvaegt'>Lastvægt *</label>
                 <input
-                  type='hentDato'
-                  name='hentDato'
+                  type='lastvaegt'
+                  name='lastvaegt'
                   placeholder='Indtast vægt i tons'
+                  required
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Vogntype</label>
+                <label htmlFor='vognType'>Vogntype</label>
                 <input
-                  type='hentTid'
-                  name='hentTid'
+                  type='vognType'
+                  name='vognType'
                   placeholder='Indtast anhængertype'
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Rammeaftale</label>
+                <label htmlFor='refAftale'>Rammeaftale</label>
                 <input
-                  type='hentTid'
-                  name='hentTid'
+                  type='refAftale'
+                  name='refAftale'
                   placeholder='Reference til rammeaftale'
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Kommentar</label>
+                <label htmlFor='kommentar'>Kommentar</label>
                 <input
-                  type='hentTid'
-                  name='hentTid'
+                  type='kommentar'
+                  name='kommentar'
                   placeholder='Yderligere kommentarer..'
                 />
               </td>
@@ -158,18 +161,18 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Alarmdato</label>
+                <label htmlFor='alarmDato'>Alarmdato</label>
                 <input
-                  type='hentDato'
-                  name='hentDato'
+                  type='alarmDato'
+                  name='alarmDato'
                   placeholder='Vælg dato'
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Alarmtidspunkt</label>
-                <input type='hentTid' name='hentTid' placeholder='00:00' />
+                <label htmlFor='alarmTid'>Alarmtidspunkt</label>
+                <input type='alarmTid' name='alarmTid' placeholder='00:00' />
               </td>
             </tr>
           </thead>
