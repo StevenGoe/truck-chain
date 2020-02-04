@@ -68,7 +68,7 @@ class NavBar extends Component {
         <div className='navLeft'>
           <div className='logo'>
             <NavLink className='logo-navlink' to='/'>
-              LOGO
+             LOGO
             </NavLink>
           </div>
         </div>

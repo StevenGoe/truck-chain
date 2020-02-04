@@ -15,20 +15,22 @@ input:focus::placeholder {
 }
 
 .SubMenu > button {
+  position: relative;
   border: none;
   padding: 0.7rem 1rem;
   background: inherit;
   color: rgb(127, 127, 127);
   border-right: 1px solid rgb(211, 211, 211);
+  cursor: pointer;
 }
 
-.SubMenu > button:focus{
-outline: none;
+.SubMenu > button:focus {
+  outline: none;
 }
 
-.SubMenu > button:active{
-  text-decoration: underline;
-  }
+.SubMenu > button:active {
+  text-decoration: none;
+}
 
 .SubMenu > form {
   margin-right: 1rem;
@@ -37,4 +39,18 @@ outline: none;
 
 .SubMenu > button:last-child {
   border-right: none;
+}
+
+.SubMenu > button.SubMenu-IsActive-Btn {
+  font-weight: bold;
+}
+
+.SubMenu > button.SubMenu-IsActive-Btn::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  height: 2%;
+  width: 70%;
+  border-bottom: 1px solid rgb(211, 211, 211);
 }

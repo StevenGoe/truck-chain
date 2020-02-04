@@ -38,12 +38,13 @@ class NewOrder extends Component {
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Afhentningsadresse</label>
+                <label htmlFor='hentAdresse'>Afhentningsadresse *</label>
                 <input
                   type='text'
                   id='hentAdresse'
                   name='hentAdresse'
                   placeholder='Vælg adresse'
+                  isRequired
                 />
               </td>
             </tr>
@@ -67,7 +68,7 @@ class NewOrder extends Component {
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Leveringsadresse</label>
+                <label htmlFor='hentAdresse'>Leveringsadresse *</label>
                 <input
                   type='text'
                   id='hentAdresse'
@@ -96,7 +97,7 @@ class NewOrder extends Component {
           <thead className='NewOrder-Form-Thead-Pickup'>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Lasttype</label>
+                <label htmlFor='hentAdresse'>Lasttype *</label>
                 <input
                   type='text'
                   id='hentAdresse'
@@ -107,7 +108,7 @@ class NewOrder extends Component {
             </tr>
             <tr>
               <td>
-                <label htmlFor='hentAdresse'>Lastvægt</label>
+                <label htmlFor='hentAdresse'>Lastvægt *</label>
                 <input
                   type='hentDato'
                   name='hentDato'
