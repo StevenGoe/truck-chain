@@ -23,11 +23,14 @@ class OrderTaker extends Component {
           brugerType={this.props.type}
           subMenu={this.props.navbarSubMenu}
         />
-        <div className='OrderHandler-Top-Menu'>
+        <div className='OrderTaker-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
-            <div className='OrderHandler-Top-Menu-btn active'>
+            <NavLink
+              className='OrderHandler-Top-Menu-btn active'
+              to='/VognmandOne'
+            >
               Alle leverancer
-            </div>
+            </NavLink>
             <NavLink
               className={
                 this.state.active
@@ -44,7 +47,7 @@ class OrderTaker extends Component {
                   active: false
                 })
               }
-              to='/ny-ordre'
+              to='/VognmandOne/mine-leverancer'
             >
               Mine leverancer
             </NavLink>

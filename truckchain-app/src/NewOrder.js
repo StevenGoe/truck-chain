@@ -20,7 +20,7 @@ class NewOrder extends Component {
               </NavLink>
               <NavLink className='NewOrder-Submenu-btn-create' to='/udbyder'>
                 Opret Udbud
-                </NavLink>
+              </NavLink>
             </div>
           </section>
           <table className='OrderHandler-table-header-newOrder'>

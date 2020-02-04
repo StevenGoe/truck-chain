@@ -3,15 +3,32 @@ display: flex;
 flex-direction: column;
 margin-left: 7rem;
 }
+
+.SubMenuFilter h5 {
+  margin-top: -1rem;
+  color: rgba(30, 86, 49, 0.9);
+  margin-bottom: 1rem;
+}
+
 .SubMenuFilter form {
   margin-right: 2rem;
   justify-content: space-between;
 }
 
+.SubMenuFilter-Form-Thead {
+  font-size: 0.75rem;
+}
+
 .SubMenuFilter-Form-Thead input {
   width: 150px;
+  height: 20px;
 }
 
 .SubMenuFilter-Form-Thead label {
   display: block;
+  margin-bottom: 0.2rem;
+}
+
+.SubMenuFilter-Form-Thead input[type] {
+  color: rgb(126, 123, 123)
 }

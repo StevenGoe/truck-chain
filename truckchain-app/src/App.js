@@ -55,7 +55,7 @@ class App extends Component {
               <Route
                 path='/ny-ordre'
                 render={props => (
-                  <NewOrder {...props} id={this.state.orderCreator} />
+                  <NewOrder {...props} id={this.state.orderCreator.Id} />
                 )}
               />
             </Switch>

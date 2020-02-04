@@ -7,6 +7,14 @@ a {
   height: 35vh;
   border-bottom: 1.4px solid rgb(211, 211, 211);
 }
+.OrderTaker-Top-Menu {
+  background: rgba(242, 242, 242, 0.5);
+  height: 39vh;
+  border-bottom: 1.4px solid rgb(211, 211, 211);
+}
+
+
+
 .OrderHandler-Top-Menu-flex {
   display: flex;
   align-items: center;
@@ -24,6 +32,21 @@ a {
 
 .OrderHandler-Top-Menu-btn:hover {
   color: rgb(38, 66, 39);
+}
+
+.OrderHandler-table-header {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+  font-weight: bold;
+}
+
+.SubMenuFilter-Form-Thead label {
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+  font-weight: bold;
 }
 
 .OrderHandler-table-header {
