@@ -27,12 +27,18 @@ class FrontScreen extends Component {
               </button>
             </NavLink>
             <NavLink to='/vognmandOne'>
-              <button id='VognmandOne' className='FrontScreen-Button-Split-left'>
+              <button
+                id='VognmandOne'
+                className='FrontScreen-Button-Split-left'
+              >
                 Vogn
               </button>
             </NavLink>
             <NavLink to='/vognmandTwo'>
-              <button id='VognmandTwo' className='FrontScreen-Button-Split-right'>
+              <button
+                id='VognmandTwo'
+                className='FrontScreen-Button-Split-right'
+              >
                 mand
               </button>
             </NavLink>
