@@ -81,11 +81,7 @@ class NewOrder extends Component {
             <tr>
               <td>
                 <label htmlFor='levDato'>Leveringsdato</label>
-                <input
-                  type='levDato'
-                  name='levDato'
-                  placeholder='Vælg dato'
-                />
+                <input type='levDato' name='levDato' placeholder='Vælg dato' />
               </td>
             </tr>
             <tr>

@@ -36,7 +36,7 @@ a {
 .OrderHandler-table-header {
   margin-top: 2rem;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   font-size: 0.75rem;
   color: rgb(127, 127, 127);
   font-weight: bold;
@@ -48,14 +48,6 @@ a {
   font-weight: bold;
 }
 
-.OrderHandler-table-header {
-  margin-top: 2rem;
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 0.75rem;
-  color: rgb(127, 127, 127);
-  font-weight: bold;
-}
 
 .OrderHandler-table-header tr {
   display: flex;

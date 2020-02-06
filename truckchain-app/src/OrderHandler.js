@@ -17,12 +17,29 @@ class OrderHandler extends Component {
       orderList: [
         {
           ejer: 'RGS Nordic',
-          id: 1,
-          hentAdresse: 'Selinevej 5',
-          hentDato: '01032020',
+          // id: 1,
+          hentAdresse: 'Selinevej 5, 2300',
+          hentDato: '01-03-2020',
           hentTid: '',
-          levAdresse: 'Kraftværksvej 31',
-          levDato: '01032020',
+          levAdresse: 'Kraftværksvej 31, 2300',
+          levDato: '01-03-2020',
+          levTid: '',
+          lastType: 'Beton',
+          lastvaegt: '6',
+          vognType: '4G',
+          refAftale: '186768',
+          kommentar: 'Beton, rent m/u arm. OVER 50',
+          alarmDato: '',
+          alarmTid: ''
+        },
+        {
+          ejer: 'RGS Nordic',
+          // id: 1,
+          hentAdresse: 'Selinevej 5, 2300',
+          hentDato: '01-03-2020',
+          hentTid: '',
+          levAdresse: 'Kraftværksvej 31, 2300',
+          levDato: '01-03-2020',
           levTid: '',
           lastType: 'Beton',
           lastvaegt: '6',
@@ -85,7 +102,7 @@ class OrderHandler extends Component {
             </thead>
           </table>
         </div>
-        <Order orderList = {this.state.orderList}/>
+        <Order orderList={this.state.orderList} />
       </div>
     );
   }

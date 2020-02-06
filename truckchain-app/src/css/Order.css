@@ -1,5 +1,19 @@
 .OrderListing {
   margin: 1rem auto;
+  min-height: 100px;
   display: flex;
   justify-content: space-evenly;
+  border-bottom: 1px solid green;
+  font-size: 0.8rem;
+}
+
+.OrderListing .Leadtext,
+.OrderListing .Leadtext p.Leadtext {
+  font-weight: bold;
+}
+
+.OrderListing p,
+.OrderListing .Leadtext p {
+  color: rgb(127, 127, 127);
+  font-weight: normal;
 }

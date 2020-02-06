@@ -4,26 +4,35 @@ import './css/Order.css';
 
 class Order extends Component {
   render() {
-    let result;
-    if (this.props.orderList[0] !== undefined) {
-      result = (
-        <div className='OrderListing'>
-          <span>{this.props.orderList[0].id} </span>
-          <span>{this.props.orderList[0].lastType} </span>
-          <span>{this.props.orderList[0].hentAdresse} </span>
-          <span>{this.props.orderList[0].hentDato} </span>
-          <span>{this.props.orderList[0].levAdresse} </span>
-          <span>{this.props.orderList[0].levDato} </span>
-          <span>
-            <Actions />{' '}
-          </span>
-        </div>
-      );
-    } else {
-      result = '';
-    }
+    const { orderList } = this.props;
+    let result = orderList.map((order, idx) => (
+      <div id={`orderlist ${idx + 1}`} key={idx} className='OrderListing'>
+        <p className='Leadtext'>{idx + 1}</p>
+        <p className='Leadtext'>
+          {order.lastType}
+          <p>Vægt: {order.lastvaegt} Ton</p>
+          <p>Vogntype: {order.vognType}</p>
+        </p>
+        <p className='Leadtext'>
+          {order.ejer}
+          <p>{order.hentAdresse}</p>
+        </p>
+        <p className='Leadtext'>
+          {order.hentDato}
+          <p className='Leadtext'>{order.hentTid}</p>
+        </p>
+        <p className='Leadtext'>{order.levAdresse}</p>
+        <p className='Leadtext'>
+          {order.levDato}
+          <p className='Leadtext'>{order.levTid}</p>
+        </p>
+        <p>
+          <Actions />
+        </p>
+      </div>
+    ));
 
-    return <div>{result}</div>;
+    return <>{result}</>;
   }
 }
 
