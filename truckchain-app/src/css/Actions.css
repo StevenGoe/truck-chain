@@ -1,0 +1,18 @@
+.Actions {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+}
+
+button i {
+  padding-right: 10px;
+}
+
+button i.fa-copy {
+  margin-left: -5px;
+}
+
+button i.fa-trash-alt {
+  margin-left: -10px;
+}

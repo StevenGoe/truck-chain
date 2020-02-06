@@ -1,19 +1,39 @@
-.OrderListing {
-  margin: 1rem auto;
-  min-height: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  border-bottom: 1px solid green;
-  font-size: 0.8rem;
+.Order-Header {
+  margin-top: -2rem;
+  width: 100%;
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+  }
+
+.Order-Header thead tr td {
+  padding-top: 0.7rem;
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+  vertical-align: top;
 }
 
-.OrderListing .Leadtext,
-.OrderListing .Leadtext p.Leadtext {
+table {
+  border-collapse: collapse;
+}
+
+.Order-Header-Headings {
   font-weight: bold;
 }
 
-.OrderListing p,
-.OrderListing .Leadtext p {
+
+.OrderListings {
+  border-bottom: 1px solid rgba(30, 86, 49, 0.9);
+}
+
+.OrderListings .Leadtext,
+.OrderListings .Leadtext p.Leadtext {
+  font-weight: bold;
+} 
+
+.OrderListings p,
+.OrderListings .Leadtext p {
   color: rgb(127, 127, 127);
   font-weight: normal;
-}
+} 
+
+

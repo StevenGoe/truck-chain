@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './css/FrontScreen.css';
 
 class FrontScreen extends Component {
+
   render() {
     return (
       <React.Fragment>

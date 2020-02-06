@@ -13,62 +13,80 @@ class NavBar extends Component {
   render() {
     const subMenu = this.props.subMenu && (
       <div className='navSub'>
-        <NavLink className='logo-navlink' to='/udbyder'>
-          <button
-            className={
-              (this.props.brugerType === 0 ? 'activeBtn' : '') +
-              (this.props.brugerType !== 0 && this.state.activeBtn
-                ? 'activeBtn-hover'
-                : '')
-            }
-            onMouseOver={() =>
-              this.props.brugerType !== 0 &&
-              this.setState({
-                activeBtn: !this.state.activeBtn
-              })
-            }
-            onMouseOut={() =>
-              this.props.brugerType !== 0 &&
-              this.setState({
-                activeBtn: !this.state.activeBtn
-              })
-            }
-          >
-            Udbudte ture{' '}
-          </button>
-        </NavLink>
-        <NavLink className='logo-navlink' to='/vognmandOne'>
-          <button
-            className={
-              (this.props.brugerType === 1 ? 'activeBtn' : '') +
-              (this.props.brugerType !== 1 && this.state.activeBtn
-                ? 'activeBtn-hover'
-                : '')
-            }
-            onMouseOver={() =>
-              this.props.brugerType !== 1 &&
-              this.setState({
-                activeBtn: !this.state.activeBtn
-              })
-            }
-            onMouseOut={() =>
-              this.props.brugerType !== 1 &&
-              this.setState({
-                activeBtn: !this.state.activeBtn
-              })
-            }
-          >
-            Vognmand
-          </button>
-        </NavLink>
+        {this.props.order && (
+          <>
+            <NavLink className='logo-navlink' to='/udbyder'>
+              <button
+                id='trips'
+                className={
+                  (this.props.brugerType === 0 ? 'activeBtn' : '') +
+                  (this.props.brugerType !== 0 && this.state.activeBtn
+                    ? 'activeBtn-hover'
+                    : '')
+                }
+                onMouseOver={() =>
+                  this.props.brugerType !== 0 &&
+                  this.setState({
+                    activeBtn: !this.state.activeBtn
+                  })
+                }
+                onMouseOut={() =>
+                  this.props.brugerType !== 0 &&
+                  this.setState({
+                    activeBtn: !this.state.activeBtn
+                  })
+                }
+              >
+                Udbudte ture
+              </button>
+            </NavLink>
+            <button className='inactiveBtn' disabled>
+              Vognmand
+            </button>
+          </>
+        )}
+
+        {this.props.vognmand && (
+          <>
+            <button className='inactiveBtn' disabled>
+              Udbudte ture
+            </button>
+            <NavLink className='logo-navlink' to='/vognmandOne'>
+              <button
+                id='tripTaker'
+                className={
+                  (this.props.brugerType === 1 ? 'activeBtn' : '') +
+                  (this.props.brugerType !== 1 && this.state.activeBtn
+                    ? 'activeBtn-hover'
+                    : '')
+                }
+                onMouseOver={() =>
+                  this.props.brugerType !== 1 &&
+                  this.setState({
+                    activeBtn: !this.state.activeBtn
+                  })
+                }
+                onMouseOut={() =>
+                  this.props.brugerType !== 1 &&
+                  this.setState({
+                    activeBtn: !this.state.activeBtn
+                  })
+                }
+              >
+                Vognmand
+              </button>
+            </NavLink>
+          </>
+        )}
       </div>
     );
+
     return (
       <div className={this.props.subMenu ? 'navBar' : 'navBar-frontpage'}>
         <div className='navLeft'>
           <div className='logo'>
             <NavLink className='logo-navlink' to='/'>
-             LOGO
+              LOGO
             </NavLink>
           </div>
         </div>

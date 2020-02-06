@@ -22,6 +22,8 @@ class OrderTaker extends Component {
           loginID={this.props.id}
           brugerType={this.props.type}
           subMenu={this.props.navbarSubMenu}
+          order={false}
+          vognmand={true}
         />
         <div className='OrderTaker-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>

@@ -36,13 +36,13 @@ class OrderHandler extends Component {
           ejer: 'RGS Nordic',
           // id: 1,
           hentAdresse: 'Selinevej 5, 2300',
-          hentDato: '01-03-2020',
+          hentDato: '01-04-2020',
           hentTid: '',
           levAdresse: 'Kraftværksvej 31, 2300',
-          levDato: '01-03-2020',
-          levTid: '',
+          levDato: '01-04-2020',
+          levTid: '16:00',
           lastType: 'Beton',
-          lastvaegt: '6',
+          lastvaegt: '20',
           vognType: '4G',
           refAftale: '186768',
           kommentar: 'Beton, rent m/u arm. OVER 50',
@@ -60,6 +60,8 @@ class OrderHandler extends Component {
           loginID={this.props.id}
           brugerType={this.props.type}
           subMenu={this.props.navbarSubMenu}
+          order={true}
+          vognmand={false}
         />
         <div className='OrderHandler-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
@@ -88,7 +90,7 @@ class OrderHandler extends Component {
             </NavLink>
           </div>
           <SubMenu />
-          <table className='OrderHandler-table-header'>
+          {/* <table className='OrderHandler-table-header'>
             <thead>
               <tr>
                 <td>Identifikation</td>
@@ -100,7 +102,7 @@ class OrderHandler extends Component {
                 <td>Mulige handlinger</td>
               </tr>
             </thead>
-          </table>
+          </table> */}
         </div>
         <Order orderList={this.state.orderList} />
       </div>
