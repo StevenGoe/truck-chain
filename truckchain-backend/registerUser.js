@@ -44,7 +44,7 @@ async function main() {
         const adminUser = await client.getUserContext('admin', false);
 
         // Register the user, enroll the user, and import the new identity into the wallet.
-        const secret = await ca.register({ affiliation: 'Peer Poc Org', enrollmentID, role: 'client' }, adminUser);
+        const secret = await ca.register({ affiliation: 'pocOrg-MSP', enrollmentID, role: 'client' }, adminUser);
         const enrollment = await ca.enroll({ enrollmentID, enrollmentSecret: secret });
         const x509Identity = {
             credentials: {
