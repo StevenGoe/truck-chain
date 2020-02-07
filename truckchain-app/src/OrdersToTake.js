@@ -5,10 +5,11 @@ import './css/Order.css';
 class Order extends Component {
   render() {
     const { orderList, id } = this.props;
-    console.log(orderList, id);
 
     let result = orderList
-      .filter(order => order.ejer === id + ' Nordic')
+      .filter(
+        order => order.access.includes('All') || order.access.includes(id)
+      )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>

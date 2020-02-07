@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SubMenuFilter from './SubMenuFilter';
+import OrdersToTake from './OrdersToTake'
 import { NavLink } from 'react-router-dom';
 import './css/FrontScreen.css';
 
@@ -55,7 +56,7 @@ class OrderTaker extends Component {
             </NavLink>
           </div>
           <SubMenuFilter />
-          <table className='OrderHandler-table-header'>
+          {/* <table className='OrderHandler-table-header'>
             <thead>
               <tr>
                 <td>Afhentningsadresse</td>
@@ -67,8 +68,9 @@ class OrderTaker extends Component {
                 <td>Mulige handlinger</td>
               </tr>
             </thead>
-          </table>
+          </table> */}
         </div>
+        <OrdersToTake orderList={this.props.orderList} id={this.props.id} />
       </div>
     );
   }

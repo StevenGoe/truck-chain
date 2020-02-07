@@ -15,13 +15,13 @@ class Actions extends Component {
     return (
       <div className='Actions'>
         <button style={btn}>
-          <i class='fas fa-pen'></i>Redigér
+          <i className='fas fa-pen'></i>Redigér
         </button>
         <button style={btn}>
-          <i class='fas fa-copy'></i>Kopiér
+          <i className='fas fa-copy'></i>Kopiér
         </button>
         <button style={btn}>
-          <i class='fas fa-trash-alt'></i>Fjern
+          <i className='fas fa-trash-alt'></i>Fjern
         </button>
       </div>
     );
