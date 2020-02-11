@@ -5,6 +5,7 @@ import OrderHandler from './OrderHandler';
 import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
 import MyTakenOrders from './MyTakenOrders';
+import uuid from 'uuid/v4';
 import './css/App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       vognmandTwo: { Id: 'Brødrene Rasmussen', BrugerType: 1 },
       orderList: [
         {
+          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '01-03-2020',
@@ -34,6 +36,7 @@ class App extends Component {
           alarmTid: ''
         },
         {
+          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '01-04-2020',
@@ -52,6 +55,7 @@ class App extends Component {
           alarmTid: ''
         },
         {
+          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '02-03-2020',
@@ -70,6 +74,7 @@ class App extends Component {
           alarmTid: ''
         },
         {
+          id: uuid(),
           ejer: 'DSV',
           hentAdresse: 'Asfaltfabrikken Ejby, 2600',
           hentDato: '02-03-2020',
@@ -91,6 +96,26 @@ class App extends Component {
     };
   }
 
+  removeOrder = id => {
+    this.setState({
+      orderList: this.state.orderList.filter(order => order.id !== id)
+    });
+  };
+
+  bookOrder = (id, user) => {
+    // Locate the order to change
+    let orderUpdate = this.state.orderList.filter(order => order.id === id);
+    orderUpdate[0].ordreStatus = 1;
+    orderUpdate[0].access = [user];
+
+    this.setState(curState => ({
+      // orderList: curState.orderList.filter(order => order.id !== id),
+      // orderUpdate
+
+      orderList: curState.orderList
+    }));
+  };
+
   render() {
     return (
       <section className='App'>
@@ -105,7 +130,9 @@ class App extends Component {
                     {...props}
                     id={this.state.orderCreator.Id}
                     type={this.state.orderCreator.BrugerType}
-                    orderList = {this.state.orderList}
+                    orderList={this.state.orderList}
+                    removeOrder={this.removeOrder}
+                    bookOrder={this.bookOrder}
                   />
                 )}
               />
@@ -116,7 +143,9 @@ class App extends Component {
                     {...props}
                     id={this.state.vognmandOne.Id}
                     type={this.state.vognmandOne.BrugerType}
-                    orderList = {this.state.orderList}
+                    orderList={this.state.orderList}
+                    removeOrder={this.removeOrder}
+                    bookOrder={this.bookOrder}
                   />
                 )}
               />
@@ -127,7 +156,9 @@ class App extends Component {
                     {...props}
                     id={this.state.vognmandTwo.Id}
                     type={this.state.vognmandTwo.BrugerType}
-                    orderList = {this.state.orderList}
+                    orderList={this.state.orderList}
+                    removeOrder={this.removeOrder}
+                    bookOrder={this.bookOrder}
                   />
                 )}
               />

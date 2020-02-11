@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SubMenuFilter from './SubMenuFilter';
-import OrdersToTake from './OrdersToTake'
+import OrdersToTake from './OrdersToTake';
 import { NavLink } from 'react-router-dom';
 import './css/FrontScreen.css';
 
@@ -70,7 +70,13 @@ class OrderTaker extends Component {
             </thead>
           </table> */}
         </div>
-        <OrdersToTake orderList={this.props.orderList} id={this.props.id} />
+        <OrdersToTake
+          orderList={this.props.orderList}
+          id={this.props.id}
+          removeOrder={this.props.removeOrder}
+          brugerType={this.props.type}
+          bookOrder={this.props.bookOrder}
+        />
       </div>
     );
   }

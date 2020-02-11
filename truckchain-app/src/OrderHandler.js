@@ -14,84 +14,16 @@ class OrderHandler extends Component {
     // this.state = {orders: []}
     this.state = {
       active: false,
-      // orderList: [
-      //   {
-      //     ejer: 'RGS Nordic',
-      //     hentAdresse: 'Selinevej 5, 2300',
-      //     hentDato: '01-03-2020',
-      //     hentTid: '',
-      //     levAdresse: 'Kraftværksvej 31, 2300',
-      //     levDato: '01-03-2020',
-      //     levTid: '',
-      //     lastType: 'Beton',
-      //     lastvaegt: '6',
-      //     vognType: '4G',
-      //     refAftale: '186768',
-      //     kommentar: 'Beton, rent m/u arm. OVER 50',
-      //     access: [],
-      //     ordreStatus: 0,
-      //     alarmDato: '',
-      //     alarmTid: ''
-      //   },
-      //   {
-      //     ejer: 'RGS Nordic',
-      //     hentAdresse: 'Selinevej 5, 2300',
-      //     hentDato: '01-04-2020',
-      //     hentTid: '',
-      //     levAdresse: 'Kraftværksvej 31, 2300',
-      //     levDato: '01-04-2020',
-      //     levTid: '16:00',
-      //     lastType: 'Beton',
-      //     lastvaegt: '20',
-      //     vognType: '4G',
-      //     refAftale: '186768',
-      //     kommentar: 'Beton, rent m/u arm. OVER 50',
-      //     access: ['Vognmand Jensen'],
-      //     ordreStatus: 0,
-      //     alarmDato: '',
-      //     alarmTid: ''
-      //   },
-      //   {
-      //     ejer: 'RGS Nordic',
-      //     hentAdresse: 'Selinevej 5, 2300',
-      //     hentDato: '02-03-2020',
-      //     hentTid: '',
-      //     levAdresse: 'Kraftværksvej 31, 2300',
-      //     levDato: '03-03-2020',
-      //     levTid: '12:00',
-      //     lastType: 'Beton',
-      //     lastvaegt: '10',
-      //     vognType: '4G',
-      //     refAftale: '186768',
-      //     kommentar: 'Beton, rent m/u arm. OVER 50',
-      //     access: [],
-      //     ordreStatus: 0,
-      //     alarmDato: '',
-      //     alarmTid: ''
-      //   },
-      //   {
-      //     ejer: 'DSV',
-      //     hentAdresse: 'Asfaltfabrikken Ejby, 2600',
-      //     hentDato: '02-03-2020',
-      //     hentTid: '07:00',
-      //     levAdresse: 'Nyhavn 28, 6200',
-      //     levDato: '02-03-2020',
-      //     levTid: '14:00',
-      //     lastType: 'Durasplitt 2-5',
-      //     lastvaegt: '39',
-      //     vognType: '07SA',
-      //     refAftale: '8818374',
-      //     kommentar: 'Prislinje 193124',
-      //     access: ['Brødrene Rasmussen'],
-      //     ordreStatus: 0,
-      //     alarmDato: '',
-      //     alarmTid: ''
-      //   }
-      // ]
+      activeSubmenuBtn: 'open'
     };
   }
 
+  updateBtn = subMenuBtn => {
+    this.setState({ activeSubmenuBtn: subMenuBtn });
+  };
+
   render() {
+    console.log('The new active submenu btn:', this.state.activeSubmenuBtn);
     return (
       <div className='OrderHandler'>
         <NavBar
@@ -127,9 +59,18 @@ class OrderHandler extends Component {
               Udbyd ny tur
             </NavLink>
           </div>
-          <SubMenu />
+          <SubMenu
+            activeBtn={this.state.activeSubmenuBtn}
+            updateBtn={this.updateBtn}
+          />
         </div>
-        <Order orderList={this.props.orderList} id={this.props.id} />
+        <Order
+          orderList={this.props.orderList}
+          id={this.props.id}
+          removeOrder={this.props.removeOrder}
+          brugerType={this.props.type}
+          activeBtn={this.state.activeSubmenuBtn}
+        />
       </div>
     );
   }

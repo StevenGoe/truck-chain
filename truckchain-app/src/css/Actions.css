@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
+
 button i {
   padding-right: 10px;
 }

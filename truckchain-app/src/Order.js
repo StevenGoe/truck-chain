@@ -4,11 +4,21 @@ import './css/Order.css';
 
 class Order extends Component {
   render() {
-    const { orderList, id } = this.props;
-    console.log(orderList, id);
+    const { orderList, id, activeBtn } = this.props;
+    const orderLookup = {
+      open: 0,
+      approved: 0,
+      active: 1,
+      completed: 2
+    };
+
 
     let result = orderList
-      .filter(order => order.ejer === id + ' Nordic')
+      .filter(
+        order =>
+          order.ejer === id + ' Nordic' &&
+          order.ordreStatus === orderLookup[activeBtn]
+      )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>
@@ -31,10 +41,23 @@ class Order extends Component {
             <p className='Leadtext'>{order.levTid}</p>
           </td>
           <td>
-            <Actions />
+            <Actions
+              id={order.id}
+              removeOrder={this.props.removeOrder}
+              brugerType={this.props.brugerType}
+            />
           </td>
         </tr>
       ));
+
+    console.log(
+      'current orders:',
+      orderList.filter(
+        order =>
+          order.ejer === id + ' Nordic' &&
+          order.ordreStatus === orderLookup[activeBtn]
+      )
+    );
 
     return (
       <>

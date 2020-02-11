@@ -8,7 +8,9 @@ class Order extends Component {
 
     let result = orderList
       .filter(
-        order => order.access.includes('All') || order.access.includes(id)
+        order =>
+          (order.access.includes('All') && order.ordreStatus === 0) ||
+          (order.access.includes(id) && order.ordreStatus === 0)
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
@@ -32,7 +34,13 @@ class Order extends Component {
             <p className='Leadtext'>{order.levTid}</p>
           </td>
           <td>
-            <Actions />
+            <Actions
+              id={order.id}
+              removeOrder={this.props.removeOrder}
+              userID={this.props.id}
+              brugerType={this.props.brugerType}
+              bookOrder={this.props.bookOrder}
+            />
           </td>
         </tr>
       ));
