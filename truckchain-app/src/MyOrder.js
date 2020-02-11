@@ -12,13 +12,11 @@ class Order extends Component {
       completed: 2
     };
 
-    console.log('This is the new test:',orderLookup[activeBtn]);
-
     let result = orderList
       .filter(
         order =>
-          (order.access.includes('All') && order.ordreStatus === 0) ||
-          (order.access.includes(id) && order.ordreStatus === 0)
+          order.access.includes(id) &&
+          order.ordreStatus === orderLookup[activeBtn]
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
@@ -45,14 +43,22 @@ class Order extends Component {
             <Actions
               id={order.id}
               removeOrder={this.props.removeOrder}
-              userID={this.props.id}
               brugerType={this.props.brugerType}
               orderStatus={orderLookup[activeBtn]}
-              bookOrder={this.props.bookOrder}
+              completeOrder={this.props.completeOrder}
             />
           </td>
         </tr>
       ));
+
+    console.log(
+      'current orders:',
+      orderList.filter(
+        order =>
+          order.ejer === id + ' Nordic' &&
+          order.ordreStatus === orderLookup[activeBtn]
+      )
+    );
 
     return (
       <>

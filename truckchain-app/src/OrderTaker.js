@@ -56,19 +56,6 @@ class OrderTaker extends Component {
             </NavLink>
           </div>
           <SubMenuFilter />
-          {/* <table className='OrderHandler-table-header'>
-            <thead>
-              <tr>
-                <td>Afhentningsadresse</td>
-                <td>Afhentningstidspunkt</td>
-                <td>Forventet pris</td>
-                <td>Leveringssadresse</td>
-                <td>Leveringstidspunkt</td>
-                <td>Lastspecifikationer</td>
-                <td>Mulige handlinger</td>
-              </tr>
-            </thead>
-          </table> */}
         </div>
         <OrdersToTake
           orderList={this.props.orderList}

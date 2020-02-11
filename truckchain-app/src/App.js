@@ -116,6 +116,15 @@ class App extends Component {
     }));
   };
 
+  completeOrder = id => {
+    let orderComplete = this.state.orderList.filter(order => order.id === id);
+    orderComplete[0].ordreStatus = 2;
+
+    this.setState(curState => ({
+      orderList: curState.orderList
+    }));
+  };
+
   render() {
     return (
       <section className='App'>
@@ -132,7 +141,8 @@ class App extends Component {
                     type={this.state.orderCreator.BrugerType}
                     orderList={this.state.orderList}
                     removeOrder={this.removeOrder}
-                    bookOrder={this.bookOrder}
+                    // bookOrder={this.bookOrder}
+                    // completeOrder={this.completeOrder}
                   />
                 )}
               />
@@ -146,6 +156,7 @@ class App extends Component {
                     orderList={this.state.orderList}
                     removeOrder={this.removeOrder}
                     bookOrder={this.bookOrder}
+                    completeOrder={this.completeOrder}
                   />
                 )}
               />
@@ -159,6 +170,7 @@ class App extends Component {
                     orderList={this.state.orderList}
                     removeOrder={this.removeOrder}
                     bookOrder={this.bookOrder}
+                    completeOrder={this.completeOrder}
                   />
                 )}
               />
@@ -174,7 +186,9 @@ class App extends Component {
                   <MyTakenOrders
                     {...props}
                     id={this.state.vognmandOne.Id}
+                    orderList={this.state.orderList}
                     type={this.state.vognmandOne.BrugerType}
+                    completeOrder={this.completeOrder}
                   />
                 )}
               />

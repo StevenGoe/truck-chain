@@ -12,7 +12,6 @@ class Order extends Component {
       completed: 2
     };
 
-
     let result = orderList
       .filter(
         order =>

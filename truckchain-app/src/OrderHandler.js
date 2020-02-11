@@ -11,7 +11,6 @@ class OrderHandler extends Component {
   };
   constructor(props) {
     super(props);
-    // this.state = {orders: []}
     this.state = {
       active: false,
       activeSubmenuBtn: 'open'
@@ -62,6 +61,7 @@ class OrderHandler extends Component {
           <SubMenu
             activeBtn={this.state.activeSubmenuBtn}
             updateBtn={this.updateBtn}
+            brugerType={this.props.type}
           />
         </div>
         <Order

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SubMenu from './SubMenu';
 import { NavLink } from 'react-router-dom';
+import MyOrder from './MyOrder';
 
 class MyTakenOrders extends Component {
   static defaultProps = {
@@ -9,19 +10,25 @@ class MyTakenOrders extends Component {
   };
   constructor(props) {
     super(props);
-    // this.state = {orders: []}
     this.state = {
-      active: false
+      active: false,
+      activeSubmenuBtn: 'active'
     };
   }
 
+  updateBtn = subMenuBtn => {
+    this.setState({ activeSubmenuBtn: subMenuBtn });
+  };
+
   render() {
     return (
-      <div>
+      <div className='OrderTaker'>
         <NavBar
           loginID={this.props.id}
           brugerType={this.props.type}
           subMenu={this.props.navbarSubMenu}
+          order={false}
+          vognmand={true}
         />
         <div className='MyTakenOrder-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
@@ -52,21 +59,19 @@ class MyTakenOrders extends Component {
               Mine leverancer
             </NavLink>
           </div>
-          <SubMenu />
-          <table className='OrderHandler-table-header'>
-            <thead>
-              <tr>
-                <td>Afhentningsadresse</td>
-                <td>Afhentningstidspunkt</td>
-                <td>Forventet pris</td>
-                <td>Leveringssadresse</td>
-                <td>Leveringstidspunkt</td>
-                <td>Lastspecifikationer</td>
-                <td>Mulige handlinger</td>
-              </tr>
-            </thead>
-          </table>
+          <SubMenu
+            activeBtn={this.state.activeSubmenuBtn}
+            updateBtn={this.updateBtn}
+            brugerType={this.props.type}
+          />
         </div>
+        <MyOrder
+          orderList={this.props.orderList}
+          id={this.props.id}
+          brugerType={this.props.type}
+          activeBtn={this.state.activeSubmenuBtn}
+          completeOrder={this.props.completeOrder}
+        />
       </div>
     );
   }
