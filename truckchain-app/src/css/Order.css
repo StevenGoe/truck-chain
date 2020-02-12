@@ -3,13 +3,23 @@
   width: 100%;
   font-size: 0.75rem;
   color: rgb(127, 127, 127);
-  }
+}
+
+.Order-Header thead tr:not(:first-child) {
+  height: 100px;
+}
 
 .Order-Header thead tr td {
+  width: 150px;
   padding-top: 0.7rem;
   padding-left: 2rem;
   padding-bottom: 0.5rem;
   vertical-align: top;
+}
+
+.Order-Header thead tr:not(:first-child) td {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 table {
@@ -20,7 +30,6 @@ table {
   font-weight: bold;
 }
 
-
 .OrderListings {
   border-bottom: 1px solid rgba(30, 86, 49, 0.9);
 }
@@ -28,12 +37,14 @@ table {
 .OrderListings .Leadtext,
 .OrderListings .Leadtext p.Leadtext {
   font-weight: bold;
-} 
+}
+
+.OrderListings-spacing {
+  padding-top: 0.5rem;
+}
 
 .OrderListings p,
 .OrderListings .Leadtext p {
   color: rgb(127, 127, 127);
   font-weight: normal;
-} 
-
-
+}

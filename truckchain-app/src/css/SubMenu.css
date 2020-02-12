@@ -54,3 +54,13 @@ input:focus::placeholder {
   width: 70%;
   border-bottom: 1px solid rgb(211, 211, 211);
 }
+
+.OrderHandler-Top-Menu-btn.active::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  bottom: -5px;
+  height: 2%;
+  width: 90%;
+  border-bottom: 2px solid rgba(30, 86, 49, 0.9);
+}

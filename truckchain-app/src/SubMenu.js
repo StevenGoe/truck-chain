@@ -13,7 +13,6 @@ class SubMenu extends Component {
     this.props.updateBtn(e.target.id);
   };
 
-  // brugerType={this.props.type}
   render() {
     const orderHandlerType = this.props.brugerType === 0 && (
       <div className='SubMenu'>
@@ -62,15 +61,6 @@ class SubMenu extends Component {
         <form>
           <input type='text' placeholder='Søg på ID, lokation m.m... ' />
         </form>
-        {/* <button
-          id='approved'
-          onClick={this.handleClick}
-          className={
-            this.state.activeBtn === 'approved' && 'SubMenu-IsActive-Btn'
-          }
-        >
-          Godkendte
-        </button> */}
         <button
           id='active'
           onClick={this.handleClick}
@@ -90,10 +80,8 @@ class SubMenu extends Component {
           Afsluttet
         </button>
       </div>
-    )
-    return (
-      this.props.brugerType === 0 ? orderHandlerType : orderTakerType
     );
+    return this.props.brugerType === 0 ? orderHandlerType : orderTakerType;
   }
 }
 

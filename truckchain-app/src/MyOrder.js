@@ -12,6 +12,8 @@ class Order extends Component {
       completed: 2
     };
 
+    console.log('orderLookup[activeBtn]', orderLookup[activeBtn]);
+
     let result = orderList
       .filter(
         order =>
@@ -22,22 +24,27 @@ class Order extends Component {
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>
           <td className='Leadtext'>
+            Udbyder
+            <p>{order.ejer}</p>
+          </td>
+          <td className='Leadtext'>
             {order.lastType}
             <p>Vægt: {order.lastvaegt} Ton</p>
             <p>Vogntype: {order.vognType}</p>
           </td>
           <td className='Leadtext'>
-            {order.ejer}
+            <p className='Leadtext'>Adresse</p>
             <p>{order.hentAdresse}</p>
+            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
+            <p>{order.hentDato}</p>
+            <p>{order.hentTid}</p>
           </td>
           <td className='Leadtext'>
-            {order.hentDato}
-            <p className='Leadtext'>{order.hentTid}</p>
-          </td>
-          <td className='Leadtext'>{order.levAdresse}</td>
-          <td className='Leadtext'>
-            {order.levDato}
-            <p className='Leadtext'>{order.levTid}</p>
+            <p className='Leadtext'>Adresse</p>
+            <p>{order.levAdresse}</p>
+            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
+            <p>{order.levDato}</p>
+            <p>{order.levTid}</p>
           </td>
           <td>
             <Actions
@@ -51,26 +58,16 @@ class Order extends Component {
         </tr>
       ));
 
-    console.log(
-      'current orders:',
-      orderList.filter(
-        order =>
-          order.ejer === id + ' Nordic' &&
-          order.ordreStatus === orderLookup[activeBtn]
-      )
-    );
-
     return (
       <>
         <table className='Order-Header'>
           <thead>
             <tr className='Order-Header-Headings'>
               <td>Identifikation</td>
+              <td>Ordreinfo</td>
               <td>Lastspecifikationer</td>
-              <td>Afhentningsadresse</td>
-              <td>Afhentningstidspunkt</td>
-              <td>Leveringssadresse</td>
-              <td>Leveringstidspunkt</td>
+              <td>Afhentning</td>
+              <td>Leverings</td>
               <td>Mulige handlinger</td>
             </tr>
             {result}

@@ -4,42 +4,39 @@ import './css/Order.css';
 
 class Order extends Component {
   render() {
-    const { orderList, id, activeBtn } = this.props;
-    const orderLookup = {
-      open: 0,
-      approved: 0,
-      active: 1,
-      completed: 2
-    };
-
-    console.log('This is the new test:',orderLookup[activeBtn]);
+    const { orderList, id } = this.props;
 
     let result = orderList
       .filter(
         order =>
-          (order.access.includes('All') && order.ordreStatus === 0) ||
+          (order.access.includes('Alle') && order.ordreStatus === 0) ||
           (order.access.includes(id) && order.ordreStatus === 0)
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>
           <td className='Leadtext'>
+            Udbyder
+            <p>{order.ejer}</p>
+          </td>
+          <td className='Leadtext'>
             {order.lastType}
             <p>Vægt: {order.lastvaegt} Ton</p>
             <p>Vogntype: {order.vognType}</p>
           </td>
           <td className='Leadtext'>
-            {order.ejer}
+            <p className='Leadtext'>Adresse</p>
             <p>{order.hentAdresse}</p>
+            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
+            <p>{order.hentDato}</p>
+            <p>{order.hentTid}</p>
           </td>
           <td className='Leadtext'>
-            {order.hentDato}
-            <p className='Leadtext'>{order.hentTid}</p>
-          </td>
-          <td className='Leadtext'>{order.levAdresse}</td>
-          <td className='Leadtext'>
-            {order.levDato}
-            <p className='Leadtext'>{order.levTid}</p>
+            <p className='Leadtext'>Adresse</p>
+            <p>{order.levAdresse}</p>
+            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
+            <p>{order.levDato}</p>
+            <p>{order.levTid}</p>
           </td>
           <td>
             <Actions
@@ -47,8 +44,9 @@ class Order extends Component {
               removeOrder={this.props.removeOrder}
               userID={this.props.id}
               brugerType={this.props.brugerType}
-              orderStatus={orderLookup[activeBtn]}
+              orderStatus={order.ordreStatus}
               bookOrder={this.props.bookOrder}
+              completeOrder={this.props.completeOrder}
             />
           </td>
         </tr>
@@ -60,11 +58,10 @@ class Order extends Component {
           <thead>
             <tr className='Order-Header-Headings'>
               <td>Identifikation</td>
+              <td>Ordreinfo</td>
               <td>Lastspecifikationer</td>
-              <td>Afhentningsadresse</td>
-              <td>Afhentningstidspunkt</td>
-              <td>Leveringssadresse</td>
-              <td>Leveringstidspunkt</td>
+              <td>Afhentning</td>
+              <td>Leverings</td>
               <td>Mulige handlinger</td>
             </tr>
             {result}

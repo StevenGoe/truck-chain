@@ -11,7 +11,6 @@ class OrderTaker extends Component {
   };
   constructor(props) {
     super(props);
-    // this.state = {orders: []}
     this.state = {
       active: false
     };
@@ -29,7 +28,7 @@ class OrderTaker extends Component {
         <div className='OrderTaker-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
             <NavLink
-              className='OrderHandler-Top-Menu-btn active'
+              className='OrderHandler-Top-Menu-btn'
               to='/VognmandOne'
             >
               Alle leverancer
@@ -63,6 +62,7 @@ class OrderTaker extends Component {
           removeOrder={this.props.removeOrder}
           brugerType={this.props.type}
           bookOrder={this.props.bookOrder}
+          completeOrder={this.props.completeOrder}
         />
       </div>
     );

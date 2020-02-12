@@ -30,7 +30,7 @@ class App extends Component {
           vognType: '4G',
           refAftale: '186768',
           kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['All'],
+          access: ['Alle'],
           ordreStatus: 0,
           alarmDato: '',
           alarmTid: ''
@@ -68,7 +68,7 @@ class App extends Component {
           vognType: '4G',
           refAftale: '186768',
           kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['All'],
+          access: ['Alle'],
           ordreStatus: 0,
           alarmDato: '',
           alarmTid: ''

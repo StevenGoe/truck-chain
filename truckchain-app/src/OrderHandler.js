@@ -22,7 +22,6 @@ class OrderHandler extends Component {
   };
 
   render() {
-    console.log('The new active submenu btn:', this.state.activeSubmenuBtn);
     return (
       <div className='OrderHandler'>
         <NavBar
