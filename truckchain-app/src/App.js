@@ -15,6 +15,7 @@ class App extends Component {
       orderCreator: { Id: 'RGS', BrugerType: 0 },
       vognmandOne: { Id: 'Vognmand Jensen', BrugerType: 1 },
       vognmandTwo: { Id: 'Brødrene Rasmussen', BrugerType: 1 },
+      vognID: '',
       orderList: [
         {
           id: uuid(),
@@ -125,6 +126,10 @@ class App extends Component {
     }));
   };
 
+  updateVognID = vognID => {
+    this.setState({ vognID: vognID });
+  };
+
   render() {
     return (
       <section className='App'>
@@ -157,6 +162,7 @@ class App extends Component {
                     removeOrder={this.removeOrder}
                     bookOrder={this.bookOrder}
                     completeOrder={this.completeOrder}
+                    updateVognID={this.updateVognID}
                   />
                 )}
               />
@@ -171,6 +177,7 @@ class App extends Component {
                     removeOrder={this.removeOrder}
                     bookOrder={this.bookOrder}
                     completeOrder={this.completeOrder}
+                    updateVognID={this.updateVognID}
                   />
                 )}
               />
@@ -185,7 +192,7 @@ class App extends Component {
                 render={props => (
                   <MyTakenOrders
                     {...props}
-                    id={this.state.vognmandOne.Id}
+                    id={this.state.vognID}
                     orderList={this.state.orderList}
                     type={this.state.vognmandOne.BrugerType}
                     completeOrder={this.completeOrder}

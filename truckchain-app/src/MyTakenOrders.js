@@ -48,7 +48,7 @@ class MyTakenOrders extends Component {
                   active: false
                 })
               }
-              to='/VognmandOne'
+              to={this.props.id === 'Vognmand Jensen' ? '/VognmandOne' : '/VognmandTwo'}
             >
               Alle leverancer
             </NavLink>

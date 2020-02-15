@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   background: linear-gradient(90deg, rgb(39, 68, 41) 25%, rgb(11, 20, 13) 75%);
-  height: 10vh;
+  height: 80px;
   border-bottom: 2px solid #fff;
 }
 
@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   background: linear-gradient(90deg, rgb(39, 68, 41) 25%, rgb(11, 20, 13) 75%);
-  height: 10vh;
+  height: 80px;
   border-bottom: 2px solid #fff;
 }
 
@@ -21,9 +21,10 @@
   text-decoration: none;
 }
 
-.navLeft .logo {
-  font-size: 1.5rem;
-  text-transform: uppercase;
+.navLeft .logo #TruckChain {
+  opacity: 0.9;
+  max-width: 75px;
+  height: auto;
 }
 
 .navLeft {
@@ -55,7 +56,7 @@
 }
 
 .navRight .far:hover,
-.logo .logo-navlink:hover {
+.navLeft .logo img:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -89,7 +90,6 @@
 .inactiveBtn {
   opacity: 0.6;
 }
-
 
 .activeBtn-hover::after {
   content: '';

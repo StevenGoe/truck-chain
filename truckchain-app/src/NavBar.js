@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './css/NavBar.css';
+import logo from './img/Logo.png';
 
 class NavBar extends Component {
   constructor(props) {
@@ -86,7 +87,7 @@ class NavBar extends Component {
         <div className='navLeft'>
           <div className='logo'>
             <NavLink className='logo-navlink' to='/'>
-              LOGO
+              <img id='TruckChain' src={logo} alt='TrukChain' />
             </NavLink>
           </div>
         </div>

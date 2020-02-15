@@ -12,9 +12,14 @@ class OrderTaker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false
+      active: false,
+      vognID: this.props.id
     };
   }
+
+  handleClick = () => {
+    this.props.updateVognID(this.state.vognID);
+  };
   render() {
     return (
       <div className='OrderTaker'>
@@ -28,7 +33,7 @@ class OrderTaker extends Component {
         <div className='OrderTaker-Top-Menu'>
           <div className='OrderHandler-Top-Menu-flex'>
             <NavLink
-              className='OrderHandler-Top-Menu-btn'
+              className='OrderHandler-Top-Menu-btn active'
               to='/VognmandOne'
             >
               Alle leverancer
@@ -49,6 +54,7 @@ class OrderTaker extends Component {
                   active: false
                 })
               }
+              onClick={this.handleClick}
               to='/mine-leverancer'
             >
               Mine leverancer
