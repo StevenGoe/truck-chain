@@ -7,9 +7,10 @@ class Actions extends Component {
   };
 
   handleBooking = e => {
-    String(e.target.innerText) === 'Book Ordre'
-      ? this.props.bookOrder(this.props.id, this.props.userID)
-      : this.props.completeOrder(this.props.id);
+    String(e.target.innerText) === 'Book Ordre' &&
+      this.props.bookOrder(this.props.id, this.props.userID);
+    String(e.target.innerText) === 'Afslut' &&
+      this.props.completeOrder(this.props.id);
   };
 
   render() {
@@ -39,14 +40,19 @@ class Actions extends Component {
       ) : (
         <div className='Actions'>
           {this.props.orderStatus === 0 && (
-            <button style={btn} onClick={this.handleBooking}>
-              <i className='fas fa-truck'></i>Book Ordre
-            </button>
+            <>
+              <button style={btn} onClick={this.handleBooking}>
+                <i className='fas fa-truck'></i>Book Ordre
+              </button>
+            </>
           )}
           {this.props.orderStatus === 1 && (
             <div>
               <button style={btn}>
                 <i className='fas fa-file-alt'></i>Detaljer
+              </button>
+              <button style={btn}>
+                <i className='fas fa-divide'></i>Afvis
               </button>
               <button style={btn} onClick={this.handleBooking}>
                 <i className='fas fa-check-circle'></i>Afslut

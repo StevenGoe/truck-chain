@@ -61,27 +61,15 @@
   cursor: pointer;
 }
 
-.NewOrder-Submenu-btn-create:active,
-.NewOrder-Submenu-btn-cancel:active {
-  transform: scale(0.95);
-  -webkit-transform: scale(0.95);
-  -moz-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  -o-transform: scale(0.95);
-}
-
 .OrderHandler-table-header-newOrder {
   margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  margin-left: 1rem;
   width: 90%;
-  padding: 0.5rem;
+  text-align: center;
   font-size: 0.75rem;
   color: rgb(127, 127, 127);
   font-weight: bold;
-}
-
-.OrderHandler-table-header-newOrder tr {
-  display: flex;
-  justify-content: space-around;
 }
 
 form {

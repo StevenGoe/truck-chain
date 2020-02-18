@@ -97,6 +97,13 @@ class App extends Component {
     };
   }
 
+  addNewOrder = order => {
+    const newOrder = order;
+    newOrder.id = uuid();
+    // console.log(newOrder);
+    this.setState({ orderList: [...this.state.orderList, newOrder] });
+  };
+
   removeOrder = id => {
     this.setState({
       orderList: this.state.orderList.filter(order => order.id !== id)
@@ -184,7 +191,11 @@ class App extends Component {
               <Route
                 path='/ny-ordre'
                 render={props => (
-                  <NewOrder {...props} id={this.state.orderCreator.Id} />
+                  <NewOrder
+                    {...props}
+                    id={this.state.orderCreator.Id}
+                    addNewOrder={this.addNewOrder}
+                  />
                 )}
               />
               <Route

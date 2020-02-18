@@ -22,7 +22,9 @@ class SubMenu extends Component {
         <button
           id='open'
           onClick={this.handleClick}
-          className={this.state.activeBtn === 'open' && 'SubMenu-IsActive-Btn'}
+          className={
+            this.state.activeBtn === 'open' ? 'SubMenu-IsActive-Btn' : undefined
+          }
         >
           Åbne
         </button>
@@ -30,7 +32,9 @@ class SubMenu extends Component {
           id='approved'
           onClick={this.handleClick}
           className={
-            this.state.activeBtn === 'approved' && 'SubMenu-IsActive-Btn'
+            this.state.activeBtn === 'approved'
+              ? 'SubMenu-IsActive-Btn'
+              : undefined
           }
         >
           Godkendte
@@ -39,7 +43,9 @@ class SubMenu extends Component {
           id='active'
           onClick={this.handleClick}
           className={
-            this.state.activeBtn === 'active' && 'SubMenu-IsActive-Btn'
+            this.state.activeBtn === 'active'
+              ? 'SubMenu-IsActive-Btn'
+              : undefined
           }
         >
           Aktive
@@ -48,7 +54,9 @@ class SubMenu extends Component {
           id='completed'
           onClick={this.handleClick}
           className={
-            this.state.activeBtn === 'completed' && 'SubMenu-IsActive-Btn'
+            this.state.activeBtn === 'completed'
+              ? 'SubMenu-IsActive-Btn'
+              : undefined
           }
         >
           Afsluttet
@@ -61,11 +69,14 @@ class SubMenu extends Component {
         <form>
           <input type='text' placeholder='Søg på ID, lokation m.m... ' />
         </form>
+
         <button
           id='active'
           onClick={this.handleClick}
           className={
-            this.state.activeBtn === 'active' && 'SubMenu-IsActive-Btn'
+            this.state.activeBtn === 'active'
+              ? 'SubMenu-IsActive-Btn'
+              : undefined
           }
         >
           Aktive
@@ -74,7 +85,9 @@ class SubMenu extends Component {
           id='completed'
           onClick={this.handleClick}
           className={
-            this.state.activeBtn === 'completed' && 'SubMenu-IsActive-Btn'
+            this.state.activeBtn === 'completed'
+              ? 'SubMenu-IsActive-Btn'
+              : undefined 
           }
         >
           Afsluttet
