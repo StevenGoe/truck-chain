@@ -1,5 +1,5 @@
 {
-  "name": "truckchain-app",
+  "name": "truck-chain",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^3.4.0",
     "uuid": "^3.4.0"
   },
   "scripts": {
