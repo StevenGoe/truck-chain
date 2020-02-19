@@ -3,8 +3,9 @@
 const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
+const args = process.argv.slice(2);
 
-async function main() {
+async function main(order=args[0], owner=args[1], accessibleBy=args[2]) {
   try {
 
     // Parse the connection profile. This would be the path to the file downloaded
@@ -30,14 +31,12 @@ async function main() {
 
     // Submit the 'createCar' transaction to the smart contract, and wait for it
     // to be committed to the ledger.
-    const order = "{\"orderId\": \"001\", \"fromAddress\": \"Skovvej 1\", \"toAddress\": \"Jordvej 2\", \"jobStart\": \"Mandag d. 2\/6-2020, 10:00\", \"jobEnd\": \"Mandag d. 2\/6-2020, 14:30\", \"unit\": \"Kilo\", \"material\": \"Blandet jord\", \"orderType\": \"Type 000\", \"specialConditions\": \"Radioaktiv\", \"truckType\": \"Stort Lad\", \"price\": \"10000\"}"
-    const user = "Mads";
-    const access = [""];
 
-    const complete = `${order}, ${user}, ${access}`;
+    // example inputs '{\"orderId\": \"004\"}', 'Mads', '{\"access\":[\"Ulla\"]}'
 
-    await contract.submitTransaction('createOrder', `{\"orderId\": \"001\"}`, `Mads`, `{\"access\":[""]}`);
+    const result = await contract.submitTransaction('createOrder', order, owner, accessibleBy);
     console.log('Transaction has been submitted');
+    console.log('Result is: '+result);
 
     await gateway.disconnect();
 
