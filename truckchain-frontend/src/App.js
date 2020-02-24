@@ -10,6 +10,7 @@ import './css/App.css';
 
 class App extends Component {
   constructor(props) {
+  
     super(props);
     this.state = {
       orderCreator: { Id: 'RGS', BrugerType: 0 },
@@ -138,6 +139,7 @@ class App extends Component {
   };
 
   render() {
+   
     return (
       <section className='App'>
         <BrowserRouter>

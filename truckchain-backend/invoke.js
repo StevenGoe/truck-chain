@@ -40,9 +40,13 @@ async function main(order=args[0], owner=args[1], accessibleBy=args[2]) {
 
     await gateway.disconnect();
 
+    return JSON.parse(result.toString());
+
     } catch (error) {
-      console.error(`Failed to submit transaction: ${error}`);
-      process.exit(1);
+      throw new Error(`Failed to submit transaction: ${error}`);
     }
   }
-main();
+
+  module.exports = {
+    createOrder: main
+  }

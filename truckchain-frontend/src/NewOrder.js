@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
 import './css/NewOrder.css';
+import {makeId} from "./util";
 
 class NewOrder extends Component {
   static defaultProps = {
@@ -46,9 +47,20 @@ class NewOrder extends Component {
     this.setState({ order });
   };
 
-  handleSubmit = evt => {
+  handleSubmit = async evt => {
     // 1. Push the order to the main state
     const order = { ...this.state.order };
+
+    console.log(order);
+   
+    const res = await fetch(`/api/order/${makeId()}`, {
+      method: "POST",
+      body: order
+    });
+    const result = await res.json();
+
+    console.log(result);
+    
     this.props.addNewOrder(order);
 
     // 2. reset local state
