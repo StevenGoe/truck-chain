@@ -98,11 +98,16 @@ class App extends Component {
     };
   }
 
-  addNewOrder = order => {
-    const newOrder = order;
-    newOrder.id = uuid();
-    // console.log(newOrder);
-    this.setState({ orderList: [...this.state.orderList, newOrder] });
+  addNewOrder = async () => {
+    // const newOrder = order;
+    // newOrder.id = uuid();
+    // // console.log(newOrder);
+    // this.setState({ orderList: [...this.state.orderList, newOrder] });
+
+    // Get all orders from contractor in the Blockchain
+    const newResult = await axios.get(`/api/order/QuaryForOwner`);
+    // set the initial state from what is retrived from the Blockchain
+    this.setState({ orderList: newResult.data.payload });
   };
 
   removeOrder = id => {
@@ -140,10 +145,11 @@ class App extends Component {
 
   async componentDidMount() {
     // Get all orders from contractor in the Blockchain
-    const res = await axios.get(`/api/order/QuaryForOwner`)
+    const res = await axios.get(`/api/order/QuaryForOwner`);
     console.log(res.data.payload);
     // set the initial state from what is retrived from the Blockchain
-    // this.setState({lækkerier med lækkerier på})
+    this.setState({ orderList: res.data.payload });
+    // this.forceUpdate();
   }
 
   render() {

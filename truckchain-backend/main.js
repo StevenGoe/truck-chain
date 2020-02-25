@@ -19,7 +19,10 @@ app.get("/api/test", (req, res) => res.send("Hello World!"));
 app.get("/api/order/QuaryForOwner", async (req, res) => {
   try {
     console.log("Trying");
-    const orderResult = await quary.quaryAllOrdersForOwner("Mads", "Ulla");
+    const orderResult = await quary.quaryAllOrdersForOwner(
+      "Mads",
+      "RGS Nordic"
+    );
     console.log(orderResult);
 
     res.send({
@@ -37,22 +40,17 @@ app.get("/api/order/QuaryForOwner", async (req, res) => {
 // initial work to create an order. a random orderId is generated on the frontend and passed through
 app.post("/api/order/:orderId", async (req, res) => {
   try {
-    console.log("Req", req.body);
+    console.log("Req", req.body.order);
     console.log("Trying");
-
-    // JSON.stringify(req.params.order),
-    // 'RGS Nordic',
-    // JSON.stringify(
-    //   JSON.stringify({ access: JSON.parse(req.params.order).access })
-    // )
+    console.log(req.body.order.accessibleBy);
 
     const orderResult = await invoke.createOrder(
-      JSON.stringify({ orderId: req.params.orderId }),
+      JSON.stringify(req.body.order),
       "RGS Nordic",
-      JSON.stringify({ access: [""] })
+      JSON.stringify({ access: req.body.order.accessibleBy })
       // JSON.stringify({ access: req.params.orderId.access })
     );
-    console.log("Body", req.body);
+
     console.log("OrderResult", orderResult);
 
     res.send({
