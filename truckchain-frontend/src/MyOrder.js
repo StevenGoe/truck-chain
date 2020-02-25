@@ -32,21 +32,21 @@ class Order extends Component {
           </td>
           <td className='Leadtext'>
             <p className='Leadtext'>Adresse</p>
-            <p>{order.hentAdresse}</p>
+            <p>{order.fromAddress}</p>
             <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
-            <p>{order.hentDato}</p>
-            <p>{order.hentTid}</p>
+            <p>{order.jobStart}</p>
+            <p>{order.jobStartTime}</p>
           </td>
           <td className='Leadtext'>
             <p className='Leadtext'>Adresse</p>
-            <p>{order.levAdresse}</p>
+            <p>{order.toAddress}</p>
             <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
-            <p>{order.levDato}</p>
-            <p>{order.levTid}</p>
+            <p>{order.jobEnd}</p>
+            <p>{order.jobEndTime}</p>
           </td>
           <td>
             <Actions
-              id={order.id}
+              id={order.orderId}
               removeOrder={this.props.removeOrder}
               brugerType={this.props.brugerType}
               orderStatus={orderLookup[activeBtn]}

@@ -112,15 +112,18 @@ class App extends Component {
 
   removeOrder = id => {
     this.setState({
-      orderList: this.state.orderList.filter(order => order.id !== id)
+      orderList: this.state.orderList.filter(order => order.orderId !== id)
     });
   };
 
   bookOrder = (id, user) => {
     // Locate the order to change
-    let orderUpdate = this.state.orderList.filter(order => order.id === id);
-    orderUpdate[0].ordreStatus = 1;
-    orderUpdate[0].access = [user];
+    console.log('id', id);
+    let orderUpdate = this.state.orderList.filter(
+      order => order.orderId === id
+    );
+    orderUpdate[0].currentStatus = 1;
+    orderUpdate[0].accessibleBy = [user];
 
     this.setState(curState => ({
       // orderList: curState.orderList.filter(order => order.id !== id),
@@ -131,8 +134,11 @@ class App extends Component {
   };
 
   completeOrder = id => {
-    let orderComplete = this.state.orderList.filter(order => order.id === id);
-    orderComplete[0].ordreStatus = 2;
+    let orderComplete = this.state.orderList.filter(
+      order => order.orderId === id
+    );
+
+    orderComplete[0].currentStatus = 2;
 
     this.setState(curState => ({
       orderList: curState.orderList
