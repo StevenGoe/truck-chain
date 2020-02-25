@@ -21,7 +21,18 @@ class OrderHandler extends Component {
     this.setState({ activeSubmenuBtn: subMenuBtn });
   };
 
+  handleLoad = async () => {
+    const res = await fetch(`/api/order/QuaryForOwner`, {
+      method: 'GET'
+    });
+    const result = await res.json();
+  };
+
   render() {
+    // On each render, we load to see if there is new data in the blockchain
+    // Render a truckChain spinner???
+    // this.handleLoad();
+
     return (
       <div className='OrderHandler'>
         <NavBar

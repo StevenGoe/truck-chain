@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
 import './css/NewOrder.css';
-import {makeId} from "./util";
+import { makeId } from './util';
+import axios from 'axios';
 
 class NewOrder extends Component {
   static defaultProps = {
@@ -12,6 +13,7 @@ class NewOrder extends Component {
     super(props);
     this.state = {
       order: {
+        orderId: '',
         ejer:
           this.props.id === 'RGS' ? this.props.id + ' Nordic' : this.props.id,
         hentAdresse: '',
@@ -50,18 +52,41 @@ class NewOrder extends Component {
   handleSubmit = async evt => {
     // 1. Push the order to the main state
     const order = { ...this.state.order };
+    const orderId = makeId();
+    order.orderId = orderId;
 
-    console.log(order);
-   
-    const res = await fetch(`/api/order/${makeId()}`, {
-      method: "POST",
-      body: order
+    console.log('Post request will use this order', JSON.stringify(order));
+
+    const res = await fetch(`/api/order/${order.orderId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          name: 'John',
+          email: 'john@example.com'
+        }
+      })
     });
     const result = await res.json();
 
-    console.log(result);
-    
-    this.props.addNewOrder(order);
+    console.log('this is the result of the post request', result);
+
+    // const res = await axios({
+    //   method: 'post',
+    //   url: `/api/order/${order.orderId}`,
+    //   data: {
+    //     firstName: 'Fred',
+    //     lastName: 'Flintstone'
+    //   }
+    // });
+
+    // await console.log('This is res', res.data);
+
+    // const result = await res.json();
+
+    // this.props.addNewOrder(order);
 
     // 2. reset local state
     this.setState({ order: this.basestate.order });

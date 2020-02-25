@@ -6,11 +6,11 @@ import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
 import MyTakenOrders from './MyTakenOrders';
 import uuid from 'uuid/v4';
+import axios from 'axios';
 import './css/App.css';
 
 class App extends Component {
   constructor(props) {
-  
     super(props);
     this.state = {
       orderCreator: { Id: 'RGS', BrugerType: 0 },
@@ -138,8 +138,15 @@ class App extends Component {
     this.setState({ vognID: vognID });
   };
 
+  async componentDidMount() {
+    // Get all orders from contractor in the Blockchain
+    const res = await axios.get(`/api/order/QuaryForOwner`)
+    console.log(res.data.payload);
+    // set the initial state from what is retrived from the Blockchain
+    // this.setState({lækkerier med lækkerier på})
+  }
+
   render() {
-   
     return (
       <section className='App'>
         <BrowserRouter>
