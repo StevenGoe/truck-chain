@@ -1,0 +1,5 @@
+applications:
+  - name: truck-chain
+    buildpacks:
+      - nodejs_buildpack
+    command: node main.js

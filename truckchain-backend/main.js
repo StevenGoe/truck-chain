@@ -1,27 +1,27 @@
-const invoke = require('./invoke');
-const quary = require('./queryAllOrdersForOwner');
-const bodyParser = require('body-parser');
-const express = require('express');
+const invoke = require("./invoke");
+const quary = require("./queryAllOrdersForOwner");
+const bodyParser = require("body-parser");
+const express = require("express");
 const app = express();
 //Port for backend
-const port = 5000;
+const port = 8080;
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-
-app.get('/'); // serve index.html
-app.get('/api/test', (req, res) => res.send('Hello World!'));
+app.use(express.static("build"));
+app.get("/api/test", (req, res) => res.send("Hello World!"));
 
 // quary all orders to load into table returned in object -> payload
-app.get('/api/order/QuaryForOwner', async (req, res) => {
+app.get("/api/order/QuaryForOwner", async (req, res) => {
   try {
-    console.log('Trying');
+    console.log("Trying");
     const orderResult = await quary.quaryAllOrdersForOwner(
-      'Mads',
-      'RGS Nordic'
+      "Mads",
+      "RGS Nordic"
     );
     console.log(orderResult);
 
@@ -38,20 +38,20 @@ app.get('/api/order/QuaryForOwner', async (req, res) => {
 });
 
 // initial work to create an order. a random orderId is generated on the frontend and passed through
-app.post('/api/order/:orderId', async (req, res) => {
+app.post("/api/order/:orderId", async (req, res) => {
   try {
-    console.log('Req', req.body.order);
-    console.log('Trying');
+    console.log("Req", req.body.order);
+    console.log("Trying");
     console.log(req.body.order.accessibleBy);
 
     const orderResult = await invoke.createOrder(
       JSON.stringify(req.body.order),
-      'RGS Nordic',
+      "RGS Nordic",
       JSON.stringify({ access: req.body.order.accessibleBy })
       // JSON.stringify({ access: req.params.orderId.access })
     );
 
-    console.log('OrderResult', orderResult);
+    console.log("OrderResult", orderResult);
 
     res.send({
       error: false,
