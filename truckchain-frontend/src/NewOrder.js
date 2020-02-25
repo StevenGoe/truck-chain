@@ -14,23 +14,22 @@ class NewOrder extends Component {
     this.state = {
       order: {
         orderId: '',
-        ejer:
+        owner:
           this.props.id === 'RGS' ? this.props.id + ' Nordic' : this.props.id,
-        hentAdresse: '',
-        hentDato: '',
-        hentTid: '',
-        levAdresse: '',
-        levDato: '',
-        levTid: '',
-        lastType: '',
-        lastvaegt: '',
-        vognType: '',
-        refAftale: '',
-        kommentar: '',
-        access: ['Alle'],
-        ordreStatus: 0,
-        alarmDato: '',
-        alarmTid: ''
+        fromAddress: '',
+        jobStart: '',
+        jobStartTime: '',
+        toAddress: '',
+        jobEnd: '',
+        jobEndTime: '',
+        material: '',
+        unit: '',
+        truckType: '',
+        orderType: '',
+        specialConditions: '',
+        accessibleBy: ['Alle'],
+        alarmDate: '',
+        alarmTime: ''
       }
     };
     this.basestate = this.state;
@@ -40,8 +39,8 @@ class NewOrder extends Component {
     // 1 take a copy of the existing state
     const order = { ...this.state.order };
     // 2 Add our new orderinfo to that order varialbes
-    if (evt.target.name === 'access') {
-      order[evt.target.name] = [evt.target.value];
+    if (evt.target.name === 'accessibleBy') {
+      order[evt.target.name] = [evt.target.value][0].trim().split(',');
     } else {
       order[evt.target.name] = evt.target.value;
     }
@@ -55,41 +54,22 @@ class NewOrder extends Component {
     const orderId = makeId();
     order.orderId = orderId;
 
-    console.log('Post request will use this order', JSON.stringify(order));
-
     const res = await fetch(`/api/order/${order.orderId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        user: {
-          name: 'John',
-          email: 'john@example.com'
-        }
+        order
       })
     });
     const result = await res.json();
 
-    console.log('this is the result of the post request', result);
-
-    // const res = await axios({
-    //   method: 'post',
-    //   url: `/api/order/${order.orderId}`,
-    //   data: {
-    //     firstName: 'Fred',
-    //     lastName: 'Flintstone'
-    //   }
-    // });
-
-    // await console.log('This is res', res.data);
-
-    // const result = await res.json();
-
-    // this.props.addNewOrder(order);
-
     // 2. reset local state
     this.setState({ order: this.basestate.order });
+
+    // 3.Update global orderlist
+    this.props.addNewOrder();
   };
 
   render() {
@@ -128,11 +108,11 @@ class NewOrder extends Component {
             <tbody>
               <tr>
                 <td>
-                  <label htmlFor='hentAdresse'>Afhentningsadresse *</label>
+                  <label htmlFor='fromAddress'>Afhentningsadresse *</label>
                   <input
                     type='text'
-                    id='hentAdresse'
-                    name='hentAdresse'
+                    id='fromAddress'
+                    name='fromAddress'
                     placeholder='Vælg adresse'
                     required
                     onChange={this.handleChange}
@@ -141,10 +121,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='hentDato'>Afhentningsdato</label>
+                  <label htmlFor='jobStart'>Afhentningsdato</label>
                   <input
                     type='date'
-                    name='hentDato'
+                    name='jobStart'
                     placeholder='Vælg dato'
                     onChange={this.handleChange}
                   />
@@ -152,10 +132,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='hentTid'>Afhentningstidspunkt</label>
+                  <label htmlFor='jobStartTime'>Afhentningstidspunkt</label>
                   <input
                     type='time'
-                    name='hentTid'
+                    name='jobStartTime'
                     onChange={this.handleChange}
                   />
                 </td>
@@ -166,11 +146,11 @@ class NewOrder extends Component {
             <tbody>
               <tr>
                 <td>
-                  <label htmlFor='levAdresse'>Leveringsadresse *</label>
+                  <label htmlFor='toAddress'>Leveringsadresse *</label>
                   <input
                     type='text'
-                    id='levAdresse'
-                    name='levAdresse'
+                    id='toAddress'
+                    name='toAddress'
                     placeholder='Vælg adresse'
                     required
                     onChange={this.handleChange}
@@ -179,10 +159,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='levDato'>Leveringsdato</label>
+                  <label htmlFor='jobEnd'>Leveringsdato</label>
                   <input
                     type='date'
-                    name='levDato'
+                    name='jobEnd'
                     placeholder='Vælg dato'
                     onChange={this.handleChange}
                   />
@@ -190,10 +170,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='levTid'>Leveringstidspunkt</label>
+                  <label htmlFor='jobEndTime'>Leveringstidspunkt</label>
                   <input
                     type='time'
-                    name='levTid'
+                    name='jobEndTime'
                     onChange={this.handleChange}
                   />
                 </td>
@@ -204,11 +184,11 @@ class NewOrder extends Component {
             <tbody>
               <tr>
                 <td>
-                  <label htmlFor='lastType'>Lasttype *</label>
+                  <label htmlFor='material'>Lasttype *</label>
                   <input
                     type='text'
-                    id='lastType'
-                    name='lastType'
+                    id='material'
+                    name='material'
                     placeholder='Indtast lasttype'
                     required
                     onChange={this.handleChange}
@@ -217,10 +197,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='lastvaegt'>Lastvægt *</label>
+                  <label htmlFor='unit'>Lastvægt *</label>
                   <input
                     type='number'
-                    name='lastvaegt'
+                    name='unit'
                     placeholder='Indtast vægt i tons'
                     required
                     onChange={this.handleChange}
@@ -229,20 +209,20 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='vognType'>Vogntype</label>
+                  <label htmlFor='truckType'>Vogn type</label>
                   <input
-                    type='vognType'
-                    name='vognType'
+                    type='truckType'
+                    name='truckType'
                     placeholder='Indtast anhængertype'
                   />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='access'>Vognmand (blank = alle)</label>
+                  <label htmlFor='accessibleBy'>Vognmand (blank = alle)</label>
                   <input
                     type='text'
-                    name='access'
+                    name='accessibleBy'
                     placeholder='Indtast Vognmand'
                     onChange={this.handleChange}
                   />
@@ -250,10 +230,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='refAftale'>Rammeaftale</label>
+                  <label htmlFor='orderType'>Rammeaftale</label>
                   <input
                     type='text'
-                    name='refAftale'
+                    name='orderType'
                     placeholder='Reference til rammeaftale'
                     onChange={this.handleChange}
                   />
@@ -261,10 +241,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='kommentar'>Kommentar</label>
+                  <label htmlFor='specialConditions'>Kommentar</label>
                   <input
                     type='text'
-                    name='kommentar'
+                    name='specialConditions'
                     placeholder='Yderligere kommentarer..'
                     onChange={this.handleChange}
                   />
@@ -284,10 +264,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='alarmDato'>Alarmdato</label>
+                  <label htmlFor='alarmDate'>Alarmdato</label>
                   <input
                     type='date'
-                    name='alarmDato'
+                    name='alarmDate'
                     placeholder='Vælg dato'
                     onChange={this.handleChange}
                   />
@@ -295,10 +275,10 @@ class NewOrder extends Component {
               </tr>
               <tr>
                 <td>
-                  <label htmlFor='alarmTid'>Alarmtidspunkt</label>
+                  <label htmlFor='alarmTime'>Alarmtidspunkt</label>
                   <input
                     type='time'
-                    name='alarmTid'
+                    name='alarmTime'
                     onChange={this.handleChange}
                   />
                 </td>

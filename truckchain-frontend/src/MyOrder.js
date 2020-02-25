@@ -15,20 +15,20 @@ class Order extends Component {
     let result = orderList
       .filter(
         order =>
-          order.access.includes(id) &&
-          order.ordreStatus === orderLookup[activeBtn]
+          order.accessibleBy.includes(id) &&
+          order.currentStatus === orderLookup[activeBtn]
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>
           <td className='Leadtext'>
             Udbyder
-            <p>{order.ejer}</p>
+            <p>{order.owner}</p>
           </td>
           <td className='Leadtext'>
-            {order.lastType}
-            <p>Vægt: {order.lastvaegt} Ton</p>
-            <p>Vogntype: {order.vognType}</p>
+            {order.material}
+            <p>Vægt: {order.unit} Ton</p>
+            <p>Vogntype: {order.truckType}</p>
           </td>
           <td className='Leadtext'>
             <p className='Leadtext'>Adresse</p>

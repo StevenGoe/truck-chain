@@ -12,37 +12,39 @@ class Order extends Component {
       completed: 2
     };
 
+    console.log('Det er den nye orderList', orderLookup[activeBtn]);
+
     let result = orderList
       .filter(
         order =>
-          order.ejer === id + ' Nordic' &&
-          order.ordreStatus === orderLookup[activeBtn]
+          order.owner === id + ' Nordic' &&
+          order.currentStatus === orderLookup[activeBtn]
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
           <td className='Leadtext'>{idx + 1}</td>
           <td className='Leadtext'>
-            {order.ordreStatus === 0 ? 'Udbudt til' : 'Transportør'}
-            <p>{order.access}</p>
+            {order.currentStatus === 0 ? 'Udbudt til' : 'Transportør'}
+            <p>{order.accessibleBy}</p>
           </td>
           <td className='Leadtext'>
-            {order.lastType}
-            <p>Vægt: {order.lastvaegt} Ton</p>
-            <p>Vogntype: {order.vognType}</p>
-          </td>
-          <td className='Leadtext'>
-            <p className='Leadtext'>Adresse</p>
-            <p>{order.hentAdresse}</p>
-            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
-            <p>{order.hentDato}</p>
-            <p>{order.hentTid}</p>
+            {order.material}
+            <p>Vægt: {order.unit} Ton</p>
+            <p>Vogntype: {order.truckType}</p>
           </td>
           <td className='Leadtext'>
             <p className='Leadtext'>Adresse</p>
-            <p>{order.levAdresse}</p>
+            <p>{order.fromAddress}</p>
             <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
-            <p>{order.levDato}</p>
-            <p>{order.levTid}</p>
+            <p>{order.jobStart}</p>
+            <p>{order.jobStartTime}</p>
+          </td>
+          <td className='Leadtext'>
+            <p className='Leadtext'>Adresse</p>
+            <p>{order.toAddress}</p>
+            <p className='Leadtext OrderListings-spacing'>Tidspunkt</p>
+            <p>{order.jobEnd}</p>
+            <p>{order.jobEndTime}</p>
           </td>
           <td>
             <Actions
