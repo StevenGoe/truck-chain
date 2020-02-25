@@ -63,10 +63,10 @@ class NewOrder extends Component {
         order
       })
     });
-    const result = await res.json();
+    // const result = await res.json();
 
     // 2. reset local state
-    this.setState({ order: this.basestate.order });
+    // this.setState({ order: this.basestate.order });
 
     // 3.Update global orderlist
     this.props.addNewOrder();

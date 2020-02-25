@@ -22,10 +22,10 @@ class OrderHandler extends Component {
   };
 
   handleLoad = async () => {
-    const res = await fetch(`/api/order/QuaryForOwner`, {
+    await fetch(`/api/order/QuaryForOwner`, {
       method: 'GET'
     });
-    const result = await res.json();
+    // const result = await res.json();
   };
 
   render() {

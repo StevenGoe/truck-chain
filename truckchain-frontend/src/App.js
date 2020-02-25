@@ -5,7 +5,6 @@ import OrderHandler from './OrderHandler';
 import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
 import MyTakenOrders from './MyTakenOrders';
-import uuid from 'uuid/v4';
 import axios from 'axios';
 import './css/App.css';
 
@@ -19,30 +18,22 @@ class App extends Component {
       vognID: '',
       orderList: [
         {
-          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '01-03-2020',
-          hentTid: '',
           levAdresse: 'Kraftværksvej 31, 2300',
           levDato: '01-03-2020',
-          levTid: '',
           lastType: 'Beton',
           lastvaegt: '6',
           vognType: '4G',
           refAftale: '186768',
           kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['Alle'],
-          ordreStatus: 0,
-          alarmDato: '',
-          alarmTid: ''
+          access: ['Alle']
         },
         {
-          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '01-04-2020',
-          hentTid: '',
           levAdresse: 'Kraftværksvej 31, 2300',
           levDato: '01-04-2020',
           levTid: '16:00',
@@ -51,17 +42,12 @@ class App extends Component {
           vognType: '4G',
           refAftale: '186768',
           kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['Vognmand Jensen'],
-          ordreStatus: 0,
-          alarmDato: '',
-          alarmTid: ''
+          access: ['Vognmand Jensen']
         },
         {
-          id: uuid(),
           ejer: 'RGS Nordic',
           hentAdresse: 'Selinevej 5, 2300',
           hentDato: '02-03-2020',
-          hentTid: '',
           levAdresse: 'Kraftværksvej 31, 2300',
           levDato: '03-03-2020',
           levTid: '12:00',
@@ -69,41 +55,13 @@ class App extends Component {
           lastvaegt: '10',
           vognType: '4G',
           refAftale: '186768',
-          kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['Alle'],
-          ordreStatus: 0,
-          alarmDato: '',
-          alarmTid: ''
-        },
-        {
-          id: uuid(),
-          ejer: 'DSV',
-          hentAdresse: 'Asfaltfabrikken Ejby, 2600',
-          hentDato: '02-03-2020',
-          hentTid: '07:00',
-          levAdresse: 'Nyhavn 28, 6200',
-          levDato: '02-03-2020',
-          levTid: '14:00',
-          lastType: 'Durasplitt 2-5',
-          lastvaegt: '39',
-          vognType: '07SA',
-          refAftale: '8818374',
-          kommentar: 'Prislinje 193124',
-          access: ['Brødrene Rasmussen'],
-          ordreStatus: 0,
-          alarmDato: '',
-          alarmTid: ''
+          kommentar: 'Beton, rent m/u arm. OVER 50'
         }
       ]
     };
   }
 
   addNewOrder = async () => {
-    // const newOrder = order;
-    // newOrder.id = uuid();
-    // // console.log(newOrder);
-    // this.setState({ orderList: [...this.state.orderList, newOrder] });
-
     // Get all orders from contractor in the Blockchain
     const newResult = await axios.get(`/api/order/QuaryForOwner`);
     // set the initial state from what is retrived from the Blockchain
@@ -118,17 +76,14 @@ class App extends Component {
 
   bookOrder = (id, user) => {
     // Locate the order to change
-    console.log('id', id);
     let orderUpdate = this.state.orderList.filter(
       order => order.orderId === id
     );
     orderUpdate[0].currentStatus = 1;
     orderUpdate[0].accessibleBy = [user];
 
+    // Måske overflødig
     this.setState(curState => ({
-      // orderList: curState.orderList.filter(order => order.id !== id),
-      // orderUpdate
-
       orderList: curState.orderList
     }));
   };
@@ -140,6 +95,7 @@ class App extends Component {
 
     orderComplete[0].currentStatus = 2;
 
+    // Måske overflødig
     this.setState(curState => ({
       orderList: curState.orderList
     }));
@@ -152,10 +108,9 @@ class App extends Component {
   async componentDidMount() {
     // Get all orders from contractor in the Blockchain
     const res = await axios.get(`/api/order/QuaryForOwner`);
-    console.log(res.data.payload);
+
     // set the initial state from what is retrived from the Blockchain
     this.setState({ orderList: res.data.payload });
-    // this.forceUpdate();
   }
 
   render() {
@@ -174,8 +129,6 @@ class App extends Component {
                     type={this.state.orderCreator.BrugerType}
                     orderList={this.state.orderList}
                     removeOrder={this.removeOrder}
-                    // bookOrder={this.bookOrder}
-                    // completeOrder={this.completeOrder}
                   />
                 )}
               />
