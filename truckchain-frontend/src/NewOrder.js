@@ -3,7 +3,6 @@ import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
 import './css/NewOrder.css';
 import { makeId } from './util';
-import axios from 'axios';
 
 class NewOrder extends Component {
   static defaultProps = {
@@ -54,7 +53,7 @@ class NewOrder extends Component {
     const orderId = makeId();
     order.orderId = orderId;
 
-    const res = await fetch(`/api/order/${order.orderId}`, {
+    await fetch(`/api/order/${order.orderId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -63,12 +62,8 @@ class NewOrder extends Component {
         order
       })
     });
-    // const result = await res.json();
 
-    // 2. reset local state
-    // this.setState({ order: this.basestate.order });
-
-    // 3.Update global orderlist
+    // 2.Update global orderlist
     this.props.addNewOrder();
   };
 

@@ -12,8 +12,6 @@ class Order extends Component {
       completed: 2
     };
 
-    console.log('Det er den nye orderList', orderLookup[activeBtn]);
-
     let result = orderList
       .filter(
         order =>

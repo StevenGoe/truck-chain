@@ -5,7 +5,6 @@ import './css/Order.css';
 class Order extends Component {
   render() {
     const { orderList, id } = this.props;
-    console.log(orderList);
 
     let result = orderList
       .filter(
