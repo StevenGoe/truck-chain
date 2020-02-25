@@ -1,5 +1,6 @@
 const invoke = require("./invoke");
 const quary = require("./queryAllOrdersForOwner");
+const enroll = require("./enrollUser");
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -7,6 +8,7 @@ const app = express();
 const port = 8080;
 
 // Parse URL-encoded bodies (as sent by HTML forms)
+
 app.use(express.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,6 +16,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("build"));
 app.get("/api/test", (req, res) => res.send("Hello World!"));
+
+app.get("/api/user/enroll", async (req, res) => {
+  try {
+    const userEnroll = await enroll.enrollUser("user1");
+    console.log(userEnroll);
+
+    res.send({
+      error: false,
+      payload: userEnroll
+    });
+  } catch (err) {
+    res.send({
+      error: true,
+      error: { err }
+    });
+  }
+});
 
 // quary all orders to load into table returned in object -> payload
 app.get("/api/order/QuaryForOwner", async (req, res) => {
