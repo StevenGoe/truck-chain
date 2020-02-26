@@ -2,6 +2,11 @@ echo Bundling..
 rm -Recurse -Force deploy
 
 mkdir -p deploy
+cd truckchain-frontend
+rm -Recurse -Force build
+npm install
+npm run-script build
+cd ..
 cp -r truckchain-frontend/wallet deploy
 cp -r truckchain-frontend/build deploy
 cp -r truckchain-backend/*.js deploy
