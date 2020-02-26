@@ -13,8 +13,7 @@ class NewOrder extends Component {
     this.state = {
       order: {
         orderId: '',
-        owner:
-          this.props.id,
+        owner: this.props.id,
         fromAddress: '',
         jobStart: '',
         jobStartTime: '',
@@ -69,7 +68,6 @@ class NewOrder extends Component {
   };
 
   render() {
-    
     return (
       <div className='NewOrder'>
         <div className='NewOrder-Topbar'>
@@ -208,9 +206,10 @@ class NewOrder extends Component {
                 <td>
                   <label htmlFor='truckType'>Vogn type</label>
                   <input
-                    type='truckType'
+                    type='text'
                     name='truckType'
                     placeholder='Indtast anhængertype'
+                    onChange={this.handleChange}
                   />
                 </td>
               </tr>

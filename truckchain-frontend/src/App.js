@@ -73,8 +73,6 @@ class App extends Component {
 
     // set the initial state from what is retrived from the Blockchain
     this.setState({ orderList: res.data.payload });
-    console.log(this.state.orderList.filter(order => order.owner === 'RGS'));
-    
   }
 
   render() {
