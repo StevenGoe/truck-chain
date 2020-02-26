@@ -3,7 +3,6 @@ import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
 import './css/NewOrder.css';
 import { makeId } from './util';
-import axios from 'axios';
 
 class NewOrder extends Component {
   static defaultProps = {
@@ -15,7 +14,7 @@ class NewOrder extends Component {
       order: {
         orderId: '',
         owner:
-          this.props.id === 'RGS' ? this.props.id + ' Nordic' : this.props.id,
+          this.props.id,
         fromAddress: '',
         jobStart: '',
         jobStartTime: '',
@@ -28,6 +27,7 @@ class NewOrder extends Component {
         orderType: '',
         specialConditions: '',
         accessibleBy: ['Alle'],
+        currentStatus: 0,
         alarmDate: '',
         alarmTime: ''
       }
@@ -54,7 +54,7 @@ class NewOrder extends Component {
     const orderId = makeId();
     order.orderId = orderId;
 
-    const res = await fetch(`/api/order/${order.orderId}`, {
+    await fetch(`/api/order/${order.orderId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -63,16 +63,13 @@ class NewOrder extends Component {
         order
       })
     });
-    // const result = await res.json();
 
-    // 2. reset local state
-    // this.setState({ order: this.basestate.order });
-
-    // 3.Update global orderlist
-    this.props.addNewOrder();
+    // 2.Update global orderlist
+    this.props.addNewOrder(order);
   };
 
   render() {
+    
     return (
       <div className='NewOrder'>
         <div className='NewOrder-Topbar'>

@@ -12,13 +12,10 @@ class Order extends Component {
       completed: 2
     };
 
-    console.log('Det er den nye orderList', orderLookup[activeBtn]);
-
     let result = orderList
       .filter(
         order =>
-          order.owner === id + ' Nordic' &&
-          order.currentStatus === orderLookup[activeBtn]
+          order.owner === id && order.currentStatus === orderLookup[activeBtn]
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>

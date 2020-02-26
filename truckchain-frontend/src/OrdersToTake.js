@@ -5,13 +5,16 @@ import './css/Order.css';
 class Order extends Component {
   render() {
     const { orderList, id } = this.props;
-    console.log(orderList);
 
     let result = orderList
       .filter(
         order =>
-          (order.accessibleBy.includes('Alle') && order.currentStatus === 0) ||
-          (order.accessibleBy.includes(id) && order.currentStatus === 0)
+          (order.accessibleBy.includes('Alle') &&
+            order.currentStatus === 0 &&
+            order.owner !== 'RGS Nordic') ||
+          (order.accessibleBy.includes(id) &&
+            order.currentStatus === 0 &&
+            order.owner !== 'RGS Nordic')
       )
       .map((order, idx) => (
         <tr id={`orderlist ${idx + 1}`} key={idx} className='OrderListings'>
