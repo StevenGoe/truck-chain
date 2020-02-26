@@ -1,8 +1,8 @@
-const invoke = require("./invoke");
-const quary = require("./queryAllOrdersForOwner");
-const enroll = require("./enrollUser");
-const bodyParser = require("body-parser");
-const express = require("express");
+const invoke = require('./invoke');
+const quary = require('./queryAllOrdersForOwner');
+const enroll = require('./enrollUser');
+const bodyParser = require('body-parser');
+const express = require('express');
 const app = express();
 //Port for backend
 const port = 8080;
@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-app.use(express.static("build"));
-app.get("/api/test", (req, res) => res.send("Hello World!"));
+app.use(express.static('build'));
+app.get('/api/test', (req, res) => res.send('Hello World!'));
 
-app.get("/api/user/enroll", async (req, res) => {
+app.get('/api/user/enroll', async (req, res) => {
   try {
-    const userEnroll = await enroll.enrollUser("user1");
+    const userEnroll = await enroll.enrollUser('user1');
     console.log(userEnroll);
 
     res.send({
@@ -35,14 +35,10 @@ app.get("/api/user/enroll", async (req, res) => {
 });
 
 // quary all orders to load into table returned in object -> payload
-app.get("/api/order/QuaryForOwner", async (req, res) => {
+app.get('/api/order/QuaryForOwner', async (req, res) => {
   try {
-    console.log("Trying");
-    const orderResult = await quary.quaryAllOrdersForOwner(
-      "Mads",
-      "RGS Nordic"
-    );
-    console.log(orderResult);
+    console.log('Trying');
+    const orderResult = await quary.quaryAllOrdersForOwner('Mads', 'RGS');
 
     res.send({
       error: false,
@@ -57,20 +53,18 @@ app.get("/api/order/QuaryForOwner", async (req, res) => {
 });
 
 // initial work to create an order. a random orderId is generated on the frontend and passed through
-app.post("/api/order/:orderId", async (req, res) => {
+app.post('/api/order/:orderId', async (req, res) => {
   try {
-    console.log("Req", req.body.order);
-    console.log("Trying");
-    console.log(req.body.order.accessibleBy);
+    console.log('Trying');
 
     const orderResult = await invoke.createOrder(
       JSON.stringify(req.body.order),
-      "RGS Nordic",
+      'RGS',
       JSON.stringify({ access: req.body.order.accessibleBy })
       // JSON.stringify({ access: req.params.orderId.access })
     );
 
-    console.log("OrderResult", orderResult);
+    console.log('OrderResult', orderResult);
 
     res.send({
       error: false,

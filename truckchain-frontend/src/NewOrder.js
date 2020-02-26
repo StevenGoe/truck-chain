@@ -14,7 +14,7 @@ class NewOrder extends Component {
       order: {
         orderId: '',
         owner:
-          this.props.id === 'RGS' ? this.props.id + ' Nordic' : this.props.id,
+          this.props.id,
         fromAddress: '',
         jobStart: '',
         jobStartTime: '',
@@ -27,6 +27,7 @@ class NewOrder extends Component {
         orderType: '',
         specialConditions: '',
         accessibleBy: ['Alle'],
+        currentStatus: 0,
         alarmDate: '',
         alarmTime: ''
       }
@@ -64,10 +65,11 @@ class NewOrder extends Component {
     });
 
     // 2.Update global orderlist
-    this.props.addNewOrder();
+    this.props.addNewOrder(order);
   };
 
   render() {
+    
     return (
       <div className='NewOrder'>
         <div className='NewOrder-Topbar'>

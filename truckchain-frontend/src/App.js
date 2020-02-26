@@ -5,6 +5,7 @@ import OrderHandler from './OrderHandler';
 import OrderTaker from './OrderTaker';
 import NewOrder from './NewOrder';
 import MyTakenOrders from './MyTakenOrders';
+import Welcome from './Welcome';
 import axios from 'axios';
 import './css/App.css';
 
@@ -16,56 +17,17 @@ class App extends Component {
       vognmandOne: { Id: 'Vognmand Jensen', BrugerType: 1 },
       vognmandTwo: { Id: 'Brødrene Rasmussen', BrugerType: 1 },
       vognID: '',
-      orderList: [
-        {
-          ejer: 'RGS Nordic',
-          hentAdresse: 'Selinevej 5, 2300',
-          hentDato: '01-03-2020',
-          levAdresse: 'Kraftværksvej 31, 2300',
-          levDato: '01-03-2020',
-          lastType: 'Beton',
-          lastvaegt: '6',
-          vognType: '4G',
-          refAftale: '186768',
-          kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['Alle']
-        },
-        {
-          ejer: 'RGS Nordic',
-          hentAdresse: 'Selinevej 5, 2300',
-          hentDato: '01-04-2020',
-          levAdresse: 'Kraftværksvej 31, 2300',
-          levDato: '01-04-2020',
-          levTid: '16:00',
-          lastType: 'Beton',
-          lastvaegt: '20',
-          vognType: '4G',
-          refAftale: '186768',
-          kommentar: 'Beton, rent m/u arm. OVER 50',
-          access: ['Vognmand Jensen']
-        },
-        {
-          ejer: 'RGS Nordic',
-          hentAdresse: 'Selinevej 5, 2300',
-          hentDato: '02-03-2020',
-          levAdresse: 'Kraftværksvej 31, 2300',
-          levDato: '03-03-2020',
-          levTid: '12:00',
-          lastType: 'Beton',
-          lastvaegt: '10',
-          vognType: '4G',
-          refAftale: '186768',
-          kommentar: 'Beton, rent m/u arm. OVER 50'
-        }
-      ]
+      orderList: [null]
     };
   }
 
-  addNewOrder = async () => {
+  addNewOrder = order => {
     // Get all orders from contractor in the Blockchain
-    const newResult = await axios.get(`/api/order/QuaryForOwner`);
+    // const newResult = await axios.get(`/api/order/QuaryForOwner`);
     // set the initial state from what is retrived from the Blockchain
-    this.setState({ orderList: newResult.data.payload });
+    // this.setState({ orderList: newResult.data.payload });
+
+    this.setState({ orderList: [...this.state.orderList, order] });
   };
 
   removeOrder = id => {
@@ -111,10 +73,12 @@ class App extends Component {
 
     // set the initial state from what is retrived from the Blockchain
     this.setState({ orderList: res.data.payload });
+    console.log(this.state.orderList.filter(order => order.owner === 'RGS'));
+    
   }
 
   render() {
-    return (
+    return this.state.orderList[0] ? (
       <section className='App'>
         <BrowserRouter>
           <div>
@@ -188,6 +152,8 @@ class App extends Component {
           </div>
         </BrowserRouter>
       </section>
+    ) : (
+      <Welcome />
     );
   }
 }

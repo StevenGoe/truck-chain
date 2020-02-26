@@ -66,7 +66,6 @@ class SubMenuFilter extends Component {
                 </td>
               </tr>
             </tbody>
-            >
           </table>
           <table className='SubMenuFilter-Form-Thead'>
             <tbody>

@@ -9,3 +9,38 @@ body {
   margin: auto;
   min-width: 1060px;
 }
+
+.Welcome {
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  /* text-align: center;
+  vertical-align: center; */
+}
+
+.Welcome-header {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.itelligence-red {
+  color: #d52a31;
+}
+
+.App {
+  animation: fade-in 3s;
+  -webkit-animation: fade-in 3s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
